@@ -15,6 +15,7 @@ interface SanityNewsListRow {
   slug?: string;
   meta?: string;
   title?: string;
+  image?: string;
   description?: string;
 }
 
@@ -44,6 +45,7 @@ export interface NewsListItem {
   slug: string;
   meta: string;
   title: string;
+  image: string;
   description: string;
 }
 
@@ -89,6 +91,7 @@ function normalizeNewsListItem(row: SanityNewsListRow | null): NewsListItem | nu
     slug,
     meta: clean(row.meta),
     title: clean(row.title) || "Untitled Story",
+    image: clean(row.image),
     description: clean(row.description)
   };
 }

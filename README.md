@@ -71,3 +71,13 @@ Creates one `pageContent` doc per page slug:
 ```bash
 npm run sanity:seed
 ```
+
+## Import the 3 homepage news posts into Sanity
+
+This script scrapes the live homepage, resolves the 3 featured post slugs via the WordPress API, uploads featured images to Sanity assets, and upserts `news` documents:
+
+```bash
+npm run sanity:import-home-news
+```
+
+Required env vars: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION`, and `SANITY_API_WRITE_TOKEN`.

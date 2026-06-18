@@ -51,7 +51,7 @@ async function run() {
     console.log(`Seeded ${slug}`);
   }
 
-  console.log("Sanity seed complete.");
+  console.log("Sanity page-content seed complete.");
 }
 
 run().catch((error) => {

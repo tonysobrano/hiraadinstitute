@@ -153,6 +153,7 @@ export const NEWS_QUERY = groq`
     "slug": slug.current,
     "meta": coalesce(meta, string(publishedAt), ""),
     title,
+    "image": mainImage.asset->url,
     "description": coalesce(description, excerpt, body[0].children[0].text, "")
   }
 `;
@@ -162,6 +163,7 @@ export const NEWS_BY_SLUG_QUERY = groq`
     "slug": slug.current,
     "meta": coalesce(meta, string(publishedAt), ""),
     title,
+    "image": mainImage.asset->url,
     "description": coalesce(description, excerpt, body[0].children[0].text, ""),
     "breadcrumb": coalesce(breadcrumb, "News / Story"),
     "metaLine": coalesce(metaLine, meta, string(publishedAt), ""),

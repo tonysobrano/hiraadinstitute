@@ -6,7 +6,8 @@
     "dev": "rm -rf .next && next dev",
     "build": "next build",
     "start": "next start",
-    "sanity:seed": "tsx scripts/seed-sanity-content.ts"
+    "sanity:seed": "tsx scripts/seed-sanity-content.ts",
+    "sanity:import-home-news": "tsx scripts/import-homepage-news.ts"
   },
   "dependencies": {
     "@sanity/client": "^7.6.2",

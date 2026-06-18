@@ -7,13 +7,15 @@ import { CTASection } from "@/components/site/CTASection";
 import { IconCard, NewsFeatureCard, NumberedRow, PublicationCard, StatItem } from "@/components/site/Cards";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import type { NewsListItem } from "@/lib/site/news";
 import type { ContentResolver } from "@/lib/site/types";
 
 interface HomePageContentProps {
   c: ContentResolver;
+  newsItems: NewsListItem[];
 }
 
-export function HomePageContent({ c }: HomePageContentProps) {
+export function HomePageContent({ c, newsItems }: HomePageContentProps) {
   const heroImage = c.i(
     "home.hero.image",
     "https://images.unsplash.com/photo-1576073383046-eaf2c135314d?auto=format&fit=crop&w=1200&q=80"
@@ -23,48 +25,6 @@ export function HomePageContent({ c }: HomePageContentProps) {
     "home.whatwedo.image",
     "https://images.unsplash.com/photo-1665491961263-2c9f8deebf63?auto=format&fit=crop&w=1200&q=80"
   );
-
-  const newsItems = [
-    {
-      image: c.i(
-        "home.news.1.image",
-        "https://hiraadinstitute.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-27-at-13.27.29-1-850x900.jpeg"
-      ),
-      meta: c.t("home.news.1.meta", "CIVIC ENGAGEMENT · JUNE 1, 2025"),
-      title: c.t("home.news.1.title", "Somali Regional Youth Forum 2025: Empowering the Next Generation"),
-      excerpt: c.t(
-        "home.news.1.excerpt",
-        "Young leaders, policymakers, and community advocates convene to shape practical youth-led policy pathways for the Somali Region."
-      ),
-      href: "/news/somali-regional-youth-forum-2025-empowering-the-next-generation"
-    },
-    {
-      image: c.i(
-        "home.news.2.image",
-        "https://hiraadinstitute.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-27-at-13.27.28-2-850x900.jpeg"
-      ),
-      meta: c.t("home.news.2.meta", "PANEL DISCUSSION · JUNE 1, 2025"),
-      title: c.t("home.news.2.title", "Who Shapes the Narrative of the Somali Regional State?"),
-      excerpt: c.t(
-        "home.news.2.excerpt",
-        "A public panel examines how identity, media, and governance narratives influence public trust and institutional legitimacy."
-      ),
-      href: "/news/who-shapes-the-narrative-of-the-somali-regional-state"
-    },
-    {
-      image: c.i(
-        "home.news.3.image",
-        "https://hiraadinstitute.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-27-at-13.27.28-1-850x900.jpeg"
-      ),
-      meta: c.t("home.news.3.meta", "PUBLIC EVENT · MAY 15, 2025"),
-      title: c.t("home.news.3.title", "Experts to Discuss Ethiopia’s Federalism and Political Identities"),
-      excerpt: c.t(
-        "home.news.3.excerpt",
-        "Hiraad Institute convenes experts and partners to unpack federalism debates and their impact on political identities."
-      ),
-      href: "/news/experts-to-discuss-ethiopias-federalism-and-political-identities-at-hiraad-institute-event"
-    }
-  ];
 
   const publications = [
     {
@@ -191,14 +151,14 @@ export function HomePageContent({ c }: HomePageContentProps) {
           </div>
 
           <div className="grid grid--three">
-            {newsItems.map((item) => (
+            {newsItems.slice(0, 3).map((item) => (
               <NewsFeatureCard
                 key={item.title}
-                image={item.image}
+                image={item.image || "https://images.unsplash.com/photo-1573167643872-43a4664ccf2c?auto=format&fit=crop&w=1200&q=80"}
                 meta={item.meta}
                 title={item.title}
-                excerpt={item.excerpt}
-                href={item.href}
+                excerpt={item.description}
+                href={`/news/${item.slug}`}
               />
             ))}
           </div>
