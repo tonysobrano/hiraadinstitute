@@ -10,8 +10,8 @@ interface HomeNewsItem {
   sourceUrl: string;
 }
 
-const HOMEPAGE_URL = "https://hiraadinstitute.com/";
-const API_BASE = "https://hiraadinstitute.com/wp-json/wp/v2";
+const HOMEPAGE_URL = "http://hiraadinstitute.com/";
+const API_BASE = "http://hiraadinstitute.com/wp-json/wp/v2";
 const LIMIT = 3;
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -78,6 +78,7 @@ function extractHomepagePostLinks(homepageHtml: string): string[] {
 
 async function uploadMainImage(imageUrl?: string, title?: string) {
   if (!imageUrl) return undefined;
+  imageUrl = imageUrl.replace("https://", "http://");
 
   try {
     const response = await fetch(imageUrl, {
