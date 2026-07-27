@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - agent/add-hiraad-journals-20260727
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
