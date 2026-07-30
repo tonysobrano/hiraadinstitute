@@ -3281,7 +3281,6 @@ img {
     display: block;
     position: fixed;
     inset: 0;
-    overflow: hidden;
     pointer-events: none;
     visibility: hidden;
     z-index: 79;
@@ -3308,14 +3307,18 @@ img {
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
-    transform: translateX(104%);
-    transition: transform 260ms ease;
+    opacity: 0;
+    transform: translateX(24px);
+    transition:
+      opacity 180ms ease,
+      transform 260ms ease;
     overflow-y: auto;
     box-shadow: -24px 0 44px rgba(4, 30, 23, 0.2);
     pointer-events: auto;
   }
 
   .site-mobile-nav.is-open .site-mobile-nav-inner {
+    opacity: 1;
     transform: translateX(0);
   }
 
@@ -4338,7 +4341,8 @@ img {
   }
 
   .site-mobile-nav-inner {
-    width: min(390px, calc(100vw - 20px));
+    width: min(390px, 100%);
+    max-width: 100%;
     height: auto;
     max-height: calc(100dvh - 20px);
     margin: 0;
