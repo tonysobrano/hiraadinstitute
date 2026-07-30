@@ -6,9 +6,9 @@ import { getContentResolver } from "@/lib/site/content";
 import { getNewsBySlug, getNewsContent, getNewsSlugs } from "@/lib/site/news";
 
 interface NewsPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 async function resolveNews(slug: string) {
@@ -39,7 +39,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
-  const resolved = await resolveNews(params.slug);
+  const { slug } = await params;
+  const resolved = await resolveNews(slug);
 
   if (!resolved) {
     return fallbackMetadata;
@@ -52,7 +53,8 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
 }
 
 export default async function NewsDetailPage({ params }: NewsPageProps) {
-  const resolved = await resolveNews(params.slug);
+  const { slug } = await params;
+  const resolved = await resolveNews(slug);
   if (!resolved) {
     notFound();
   }

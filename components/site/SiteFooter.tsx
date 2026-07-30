@@ -17,16 +17,9 @@ const researchLinks = [
 const instituteLinks = [
   { key: "footer.institute.about", label: "About Us", href: "/about" },
   { key: "footer.institute.team", label: "Our Team", href: "/about#team" },
-  { key: "footer.institute.publications", label: "Publications", href: "/publications" },
-  { key: "footer.institute.events", label: "Events", href: "/events" },
+  { key: "footer.institute.journals", label: "Journals", href: "/journals" },
+  { key: "footer.institute.newsEvents", label: "News & Events", href: "/news-events" },
   { key: "footer.institute.contact", label: "Contact", href: "/contact" }
-];
-
-const connectLinks = [
-  { key: "footer.connect.twitter", label: "Twitter / X", href: "https://x.com" },
-  { key: "footer.connect.linkedin", label: "LinkedIn", href: "https://linkedin.com" },
-  { key: "footer.connect.newsletter", label: "Newsletter", href: "#newsletter" },
-  { key: "footer.connect.email", label: "info@hiraad.org", href: "mailto:info@hiraad.org" }
 ];
 
 function text(t: SiteFooterProps["t"], key: string, fallback: string): string {
@@ -43,13 +36,16 @@ export function SiteFooter({ t }: SiteFooterProps) {
             <p>
               {text(
                 t,
-                "footer.brand.description",
-                "An independent, non-partisan public policy research institute based in Jigjiga, Somali Region, Ethiopia."
+                "footer.brand.summary",
+                "An independent, non-partisan research institute advancing evidence-based public policy in the Horn of Africa."
               )}
+            </p>
+            <p className="site-footer-address">
+              Jigjiga, Somali Region, Ethiopia
             </p>
           </div>
 
-          <div className="site-footer-links">
+          <nav className="site-footer-links" aria-label="Footer navigation">
             <div>
               <h4>RESEARCH</h4>
               {researchLinks.map((item) => (
@@ -58,7 +54,6 @@ export function SiteFooter({ t }: SiteFooterProps) {
                 </Link>
               ))}
             </div>
-
             <div>
               <h4>INSTITUTE</h4>
               {instituteLinks.map((item) => (
@@ -67,23 +62,13 @@ export function SiteFooter({ t }: SiteFooterProps) {
                 </Link>
               ))}
             </div>
-
-            <div>
-              <h4>CONNECT</h4>
-              {connectLinks.map((item) => (
-                <a key={item.key} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                  {text(t, item.key, item.label)}
-                </a>
-              ))}
-            </div>
-          </div>
+          </nav>
         </div>
 
         <div className="site-footer-divider" />
-
         <div className="site-footer-bottom">
           <p>{text(t, "footer.bottom.copy", "© 2026 Hiraad Institute. All rights reserved.")}</p>
-          <p>{text(t, "footer.bottom.credit", "Created with ❤️ by PrimeCreative")}</p>
+          <p>{text(t, "footer.bottom.creditPlain", "Created by PrimeCreative")}</p>
         </div>
       </div>
     </footer>

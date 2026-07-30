@@ -1,5 +1,6 @@
 import { sanityClient, sanityEnabled } from "@/lib/sanity/client";
-import { EVENT_BY_SLUG_QUERY, EVENT_SLUGS_QUERY, EVENTS_QUERY } from "@/lib/sanity/queries";
+import { EVENTS_QUERY } from "@/lib/sanity/queries";
+import { localEventRows } from "@/lib/site/local-events";
 
 const EVENT_PLACEHOLDER_IMAGE = "/images/event-placeholder.svg";
 
@@ -27,13 +28,10 @@ interface SanityEventRow {
   relatedEventSlugs?: string[];
 }
 
-interface SlugRow {
-  slug?: string;
-}
-
 export interface EventContent {
   slug: string;
   title: string;
+  date: string;
   previewMeta: string;
   detailMeta: string;
   category: string;
@@ -112,6 +110,7 @@ function normalizeEvent(row: SanityEventRow | null): EventContent | null {
   return {
     slug,
     title: clean(row.title) || "Untitled Event",
+    date,
     previewMeta,
     detailMeta,
     category,
@@ -135,33 +134,43 @@ function normalizeEvent(row: SanityEventRow | null): EventContent | null {
   };
 }
 
-export async function getEventsContent(): Promise<EventContent[]> {
-  if (!sanityEnabled || !sanityClient) {
-    return [];
-  }
-
-  const rows = await sanityClient.fetch<SanityEventRow[]>(EVENTS_QUERY, {}, { next: { revalidate: 30 } });
-  return rows.map((row) => normalizeEvent(row)).filter((row): row is EventContent => Boolean(row));
+function eventTimestamp(event: EventContent): number {
+  const timestamp = Date.parse(event.date);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
-export async function getEventBySlug(slug: string): Promise<EventContent | null> {
-  if (!sanityEnabled || !sanityClient) {
-    return null;
+const localEvents = localEventRows
+  .map((row) => normalizeEvent(row))
+  .filter((row): row is EventContent => Boolean(row))
+  .sort((a, b) => eventTimestamp(b) - eventTimestamp(a));
+
+const localEventsBySlug = new Map(localEvents.map((event) => [event.slug, event]));
+
+function mergeWithLocalEvents(events: EventContent[]): EventContent[] {
+  const merged = new Map(localEventsBySlug);
+
+  for (const event of events) {
+    merged.set(event.slug, event);
   }
 
-  const row = await sanityClient.fetch<SanityEventRow | null>(
-    EVENT_BY_SLUG_QUERY,
-    { slug },
-    { next: { revalidate: 30 } }
-  );
-  return normalizeEvent(row);
+  return Array.from(merged.values()).sort((a, b) => eventTimestamp(b) - eventTimestamp(a));
+}
+
+export async function getEventsContent(): Promise<EventContent[]> {
+  if (!sanityEnabled || !sanityClient) {
+    return localEvents;
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityEventRow[]>(EVENTS_QUERY, {}, { next: { revalidate: 30 } });
+    const events = rows.map((row) => normalizeEvent(row)).filter((row): row is EventContent => Boolean(row));
+    return mergeWithLocalEvents(events);
+  } catch {
+    return localEvents;
+  }
 }
 
 export async function getEventSlugs(): Promise<string[]> {
-  if (!sanityEnabled || !sanityClient) {
-    return [];
-  }
-
-  const rows = await sanityClient.fetch<SlugRow[]>(EVENT_SLUGS_QUERY, {}, { next: { revalidate: 30 } });
-  return rows.map((row) => clean(row.slug)).filter(Boolean);
+  const events = await getEventsContent();
+  return events.map((event) => event.slug);
 }

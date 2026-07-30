@@ -1,4 +1,6 @@
-import { groq } from "next-sanity";
+function groq(strings: TemplateStringsArray): string {
+  return strings[0];
+}
 
 export const PAGE_CONTENT_QUERY = groq`
   *[_type == "pageContent" && slug == $slug][0] {
@@ -47,41 +49,6 @@ export const EVENTS_QUERY = groq`
     "previewImage": coalesce(previewImage.asset->url, mainImage.asset->url),
     "galleryImages": galleryImages[].asset->url,
     "relatedEventSlugs": coalesce(relatedEvents[]->slug.current, [])
-  }
-`;
-
-export const EVENT_BY_SLUG_QUERY = groq`
-  *[_type == "event" && slug.current == $slug][0] {
-    "slug": slug.current,
-    title,
-    "date": coalesce(date, string(eventDate), ""),
-    "meta": coalesce(meta, location, category, author, string(date), ""),
-    category,
-    author,
-    location,
-    "previewDescription": coalesce(previewDescription, excerpt, body[0].children[0].text, ""),
-    "introTitle": coalesce(introTitle, "Overview"),
-    "introText": coalesce(introText, body[0].children[0].text, excerpt, ""),
-    "detailsTitle": coalesce(detailsTitle, "Event details"),
-    "highlightsTitle": coalesce(highlightsTitle, "Highlights"),
-    "highlightsText": coalesce(highlight, highlightsText, ""),
-    "nextStepsTitle": coalesce(nextStepsTitle, "Next steps"),
-    "nextStepsText": coalesce(nextStepsText, body[1].children[0].text, body[0].children[0].text, excerpt, ""),
-    "assetTitle": coalesce(assetTitle, "Related resources"),
-    "assetText": coalesce(assetText, excerpt, body[0].children[0].text, ""),
-    "assetPrimaryLabel": coalesce(assetPrimaryLabel, "View details"),
-    "assetPrimaryHref": coalesce(assetPrimaryHref, "/contact"),
-    "assetSecondaryLabel": coalesce(assetSecondaryLabel, "Get in touch"),
-    "assetSecondaryHref": coalesce(assetSecondaryHref, "/contact"),
-    "previewImage": coalesce(previewImage.asset->url, mainImage.asset->url),
-    "galleryImages": galleryImages[].asset->url,
-    "relatedEventSlugs": coalesce(relatedEvents[]->slug.current, [])
-  }
-`;
-
-export const EVENT_SLUGS_QUERY = groq`
-  *[_type == "event" && defined(slug.current)]{
-    "slug": slug.current
   }
 `;
 

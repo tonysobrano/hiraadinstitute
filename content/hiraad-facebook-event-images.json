@@ -1,0 +1,19 @@
+{
+  "source": "Hiraad Institute Facebook page",
+  "downloadedAt": "2026-07-28",
+  "imageRoot": "/images/events/facebook",
+  "events": [
+    {"slug": "hiraad-pre-launch-workshop-2024", "imageDirectory": "/images/events/facebook/hiraad-pre-launch-workshop-2024", "imageCount": 5, "status": "downloaded"},
+    {"slug": "shaping-media-reporting-roundtable-2024", "imageDirectory": "/images/events/facebook/shaping-media-reporting-roundtable-2024", "imageCount": 1, "status": "downloaded"},
+    {"slug": "somali-region-youth-forum-2025", "imageDirectory": "/images/events/facebook/somali-region-youth-forum-2025", "imageCount": 1, "status": "downloaded"},
+    {"slug": "smugglers-speculators-city-book-launch-2025", "imageDirectory": "/images/events/facebook/smugglers-speculators-city-book-launch-2025", "imageCount": 1, "status": "downloaded"},
+    {"slug": "winning-the-heart-book-launch-2025", "imageDirectory": "/images/events/facebook/winning-the-heart-book-launch-2025", "imageCount": 1, "status": "downloaded"},
+    {"slug": "education-research-stakeholder-preview-2025", "imageDirectory": "/images/events/facebook/education-research-stakeholder-preview-2025", "imageCount": 5, "status": "downloaded"},
+    {"slug": "somali-region-youth-forum-2026", "imageDirectory": "/images/events/facebook/somali-region-youth-forum-2026", "imageCount": 1, "status": "downloaded"},
+    {"slug": "hiraad-education-forum-2026", "imageDirectory": "/images/events/facebook/hiraad-education-forum-2026", "imageCount": 5, "status": "downloaded"},
+    {"slug": "diaspora-role-regional-stability-forum-2026", "imageDirectory": "/images/events/facebook/diaspora-role-regional-stability-forum-2026", "imageCount": 5, "status": "downloaded"},
+    {"slug": "somali-region-research-journal-consultation-2026", "imageDirectory": "/images/events/facebook/somali-region-research-journal-consultation-2026", "imageCount": 5, "status": "downloaded"},
+    {"slug": "national-dialogue-somali-region-research-presentation-2026", "imageDirectory": "/images/events/facebook/national-dialogue-somali-region-research-presentation-2026", "imageCount": 1, "status": "downloaded"},
+    {"slug": "hiraad-rvi-researchers-roundtable-2026", "imageDirectory": "/images/events/facebook/hiraad-rvi-researchers-roundtable-2026", "imageCount": 4, "status": "downloaded", "note": "Recovered from the Hiraad public Facebook page photo set."}
+  ]
+}

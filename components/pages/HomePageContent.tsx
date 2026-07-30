@@ -7,6 +7,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { IconCard, NewsFeatureCard, NumberedRow, PublicationCard, StatItem } from "@/components/site/Cards";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import { journals } from "@/lib/site/journals";
 import type { NewsListItem } from "@/lib/site/news";
 import type { ContentResolver } from "@/lib/site/types";
 
@@ -18,52 +19,15 @@ interface HomePageContentProps {
 export function HomePageContent({ c, newsItems }: HomePageContentProps) {
   const heroImage = c.i(
     "home.hero.image",
-    "https://images.unsplash.com/photo-1576073383046-eaf2c135314d?auto=format&fit=crop&w=1200&q=80"
+    "/images/events/facebook/hiraad-education-forum-2026/632406582_122228950814318499_7929000161118065937_n.jpg"
   );
 
   const whatWeDoImage = c.i(
     "home.whatwedo.image",
-    "https://images.unsplash.com/photo-1665491961263-2c9f8deebf63?auto=format&fit=crop&w=1200&q=80"
+    "/images/events/facebook/somali-region-research-journal-consultation-2026/710638955_122243593826318499_4265697690401493437_n.jpg"
   );
 
-  const publications = [
-    {
-      image: c.i(
-        "home.publication.1.image",
-        "https://images.unsplash.com/photo-1598613717491-e61f4b242c5e?auto=format&fit=crop&w=1200&q=80"
-      ),
-      tag: c.t("home.publication.1.tag", "POLICY BRIEF"),
-      title: c.t(
-        "home.publication.1.title",
-        "Climate Adaptation Strategies for Pastoral Communities in the Somali Region"
-      ),
-      date: c.t("home.publication.1.date", "January 2026")
-    },
-    {
-      image: c.i(
-        "home.publication.2.image",
-        "https://images.unsplash.com/photo-1740382242940-5693432d977a?auto=format&fit=crop&w=1200&q=80"
-      ),
-      tag: c.t("home.publication.2.tag", "RESEARCH REPORT"),
-      title: c.t(
-        "home.publication.2.title",
-        "Governance Reform and Institutional Capacity in the Somali Regional State"
-      ),
-      date: c.t("home.publication.2.date", "December 2025")
-    },
-    {
-      image: c.i(
-        "home.publication.3.image",
-        "https://images.unsplash.com/photo-1712700004723-4adc42a3532f?auto=format&fit=crop&w=1200&q=80"
-      ),
-      tag: c.t("home.publication.3.tag", "WORKING PAPER"),
-      title: c.t(
-        "home.publication.3.title",
-        "Cross-Border Trade and Economic Integration in the Horn of Africa"
-      ),
-      date: c.t("home.publication.3.date", "November 2025")
-    }
-  ];
+  const featuredJournals = journals.slice(0, 3);
 
   return (
     <PageShell t={c.t}>
@@ -85,7 +49,7 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
           </div>
 
           <div className="hero-home-image-wrap">
-            <Image src={heroImage} alt="Research collaboration" fill className="hero-home-image" sizes="(max-width: 1024px) 100vw, 42vw" />
+            <Image src={heroImage} alt="Hiraad Education Forum speaker" fill className="hero-home-image" sizes="(max-width: 1024px) 100vw, 42vw" />
           </div>
         </div>
       </section>
@@ -144,8 +108,8 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
               title={c.t("home.news.title", "Latest updates from Hiraad")}
               size="lg"
             />
-            <Link href="/news-media" className="home-news-view-all">
-              <span>{c.t("home.news.viewAll", "View All News")}</span>
+            <Link href="/news-events" className="home-news-view-all">
+              <span>{c.t("home.news.viewAll", "View All News & Events")}</span>
               <ArrowRight aria-hidden="true" />
             </Link>
           </div>
@@ -246,7 +210,7 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
               size="lg"
             />
             <div className="whatwedo-image-wrap">
-              <Image src={whatWeDoImage} alt="Field research" fill className="whatwedo-image" sizes="(max-width: 1024px) 100vw, 42vw" />
+              <Image src={whatWeDoImage} alt="Hiraad researcher presenting at a consultation" fill className="whatwedo-image" sizes="(max-width: 1024px) 100vw, 42vw" />
             </div>
           </div>
 
@@ -290,7 +254,7 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
             <NumberedRow
               index="05"
               dark
-              title={c.t("home.wwd.5.title", "Publications & Knowledge Sharing")}
+              title={c.t("home.wwd.5.title", "Journals & Knowledge Sharing")}
               description={c.t(
                 "home.wwd.5.description",
                 "Publishing research findings, policy papers, and reports accessible to all stakeholders."
@@ -316,25 +280,25 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
         <div className="container">
           <div className="section-heading-row">
             <SectionIntro
-              eyebrow={c.t("home.publications.eyebrow", "LATEST PUBLICATIONS")}
-              title={c.t("home.publications.title", "Recent research & policy briefs")}
+              eyebrow={c.t("home.journals.eyebrow", "LATEST JOURNALS")}
+              title={c.t("home.journals.title", "Recent research & policy briefs")}
               size="lg"
             />
-            <Link href="/publications" className="home-publications-view-all">
-              <span>{c.t("home.publications.viewAll", "View All Publications")}</span>
+            <Link href="/journals" className="home-publications-view-all">
+              <span>{c.t("home.journals.viewAll", "View All Journals")}</span>
               <ArrowRight aria-hidden="true" />
             </Link>
           </div>
 
           <div className="grid grid--three">
-            {publications.map((item) => (
+            {featuredJournals.map((item) => (
               <PublicationCard
-                key={item.title}
-                image={item.image}
-                tag={item.tag}
+                key={item.slug}
+                image={item.cover}
+                tag={item.kind.toUpperCase()}
                 title={item.title}
-                date={item.date}
-                href="/publications/decentralization-service-delivery-performance-somali-region"
+                date={String(item.year)}
+                href={`/journals/${item.slug}`}
               />
             ))}
           </div>

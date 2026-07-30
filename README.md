@@ -15,12 +15,14 @@ This project is a fully coded Next.js App Router implementation of the Hiraad we
 - `/`
 - `/about`
 - `/research`
-- `/publications`
-- `/events`
+- `/journals`
+- `/journals/[slug]`
+- `/news-events`
+- `/events/[slug]`
 - `/contact`
-- `/news-media`
-- `/publications/[slug]`
 - `/news/[slug]`
+
+Legacy `/publications`, `/events`, and `/news-media` URLs redirect to the current journal or news-and-events sections.
 
 ## CMS model
 
@@ -80,4 +82,18 @@ This script scrapes the live homepage, resolves the 3 featured post slugs via th
 npm run sanity:import-home-news
 ```
 
-Required env vars: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION`, and `SANITY_API_WRITE_TOKEN`.
+## Import Facebook events into Sanity
+
+The event import uses the curated records in `content/hiraad-facebook-events.json` and the optimized event images in `public/images/events/facebook`:
+
+```bash
+npm run sanity:import-facebook-events
+```
+
+## Environment variables
+
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, and `NEXT_PUBLIC_SANITY_API_VERSION` configure the CMS.
+- `SANITY_API_READ_TOKEN` is recommended when the production dataset is private.
+- `SANITY_API_WRITE_TOKEN` is required only for seed and import scripts. Never expose it to client-side code.
+
+The published Facebook event archive also has a local fallback, so event pages remain available if Sanity is temporarily unreachable.

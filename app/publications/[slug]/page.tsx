@@ -6,9 +6,9 @@ import { getContentResolver } from "@/lib/site/content";
 import { getPublicationBySlug, getPublicationsContent, getPublicationSlugs } from "@/lib/site/publications";
 
 interface PublicationPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 async function resolvePublication(slug: string) {
@@ -39,7 +39,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PublicationPageProps): Promise<Metadata> {
-  const resolved = await resolvePublication(params.slug);
+  const { slug } = await params;
+  const resolved = await resolvePublication(slug);
 
   if (!resolved) {
     return fallbackMetadata;
@@ -52,7 +53,8 @@ export async function generateMetadata({ params }: PublicationPageProps): Promis
 }
 
 export default async function PublicationDetailPage({ params }: PublicationPageProps) {
-  const resolved = await resolvePublication(params.slug);
+  const { slug } = await params;
+  const resolved = await resolvePublication(slug);
   if (!resolved) {
     notFound();
   }

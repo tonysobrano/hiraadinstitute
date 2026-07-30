@@ -8,3 +8,7 @@ node_modules
 .DS_Store
 sanity/.sanity
 .vercel
+
+# Local source material; optimized public copies live under public/
+content/*.pdf
+content/*.jpeg

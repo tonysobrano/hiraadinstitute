@@ -2,23 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ButtonLink } from "@/components/site/ButtonLink";
 import { LogoMark } from "@/components/site/LogoMark";
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "Research", href: "/research" },
-  { label: "Publications", href: "/publications" },
   { label: "About", href: "/about" },
-  { label: "Events", href: "/events" },
-  { label: "News & Media", href: "/news-media" }
+  { label: "Research", href: "/research" },
+  { label: "Journals", href: "/journals" },
+  { label: "News & Events", href: "/news-events" }
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -30,12 +32,31 @@ export function SiteHeader() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key === "Tab" && mobileNavRef.current) {
+        const focusableItems = Array.from(
+          mobileNavRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+        );
+        const firstItem = focusableItems[0];
+        const lastItem = focusableItems[focusableItems.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstItem) {
+          event.preventDefault();
+          lastItem?.focus();
+        } else if (!event.shiftKey && document.activeElement === lastItem) {
+          event.preventDefault();
+          firstItem?.focus();
+        }
       }
     };
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
+    closeButtonRef.current?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -60,7 +81,13 @@ export function SiteHeader() {
     return () => mediaQuery.removeListener(onChange);
   }, []);
 
-  const isActive = (href: string) => pathname === href || (href !== "/" && pathname?.startsWith(`${href}/`));
+  const isActive = (href: string) => {
+    if (href === "/news-events" && (pathname?.startsWith("/news/") || pathname?.startsWith("/events/"))) {
+      return true;
+    }
+
+    return pathname === href || (href !== "/" && pathname?.startsWith(`${href}/`));
+  };
 
   return (
     <>
@@ -86,9 +113,11 @@ export function SiteHeader() {
           </div>
 
           <button
+            ref={menuButtonRef}
             className={`site-header-menu ${mobileMenuOpen ? "is-open" : ""}`}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
+            aria-controls="site-mobile-navigation"
             type="button"
             onClick={() => setMobileMenuOpen((current) => !current)}
           >
@@ -101,11 +130,20 @@ export function SiteHeader() {
 
       <div className={`site-mobile-backdrop ${mobileMenuOpen ? "is-open" : ""}`} onClick={() => setMobileMenuOpen(false)} />
 
-      <div className={`site-mobile-nav ${mobileMenuOpen ? "is-open" : ""}`} aria-hidden={!mobileMenuOpen}>
+      <div
+        ref={mobileNavRef}
+        id="site-mobile-navigation"
+        className={`site-mobile-nav ${mobileMenuOpen ? "is-open" : ""}`}
+        aria-hidden={!mobileMenuOpen}
+        aria-modal="true"
+        aria-label="Navigation menu"
+        role="dialog"
+      >
         <div className="site-mobile-nav-inner">
           <div className="site-mobile-nav-top">
-            <p className="site-mobile-nav-eyebrow">Explore</p>
+            <LogoMark />
             <button
+              ref={closeButtonRef}
               className="site-mobile-close"
               type="button"
               aria-label="Close navigation menu"
@@ -129,7 +167,9 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <ButtonLink href="/contact" label="Get Involved" variant="dark" className="site-mobile-nav-cta" />
+          <div className="site-mobile-nav-bottom">
+            <ButtonLink href="/contact" label="Get Involved" variant="dark" className="site-mobile-nav-cta" />
+          </div>
         </div>
       </div>
     </>

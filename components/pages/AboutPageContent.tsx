@@ -15,11 +15,11 @@ interface AboutPageContentProps {
 export function AboutPageContent({ c }: AboutPageContentProps) {
   const storyImage1 = c.i(
     "about.story.image1",
-    "https://images.unsplash.com/photo-1629294563728-9f3f5d98e601?auto=format&fit=crop&w=1200&q=80"
+    "/images/events/facebook/hiraad-pre-launch-workshop-2024/469714100_122158515128318499_6854909978711075528_n.jpg"
   );
   const storyImage2 = c.i(
     "about.story.image2",
-    "https://images.unsplash.com/photo-1631561158446-086cebb5df8d?auto=format&fit=crop&w=1200&q=80"
+    "/images/events/facebook/education-research-stakeholder-preview-2025/574606027_122215730120318499_3578089242469857428_n.jpg"
   );
 
   return (
@@ -63,10 +63,10 @@ export function AboutPageContent({ c }: AboutPageContentProps) {
 
           <div className="stack">
             <div className="image-block image-block--large">
-              <Image src={storyImage1} alt="Field dialogue" fill className="cover-image" sizes="(max-width: 1024px) 100vw, 40vw" />
+              <Image src={storyImage1} alt="Participants at Hiraad's pre-launch workshop" fill className="cover-image" sizes="(max-width: 1024px) 100vw, 40vw" />
             </div>
             <div className="image-block image-block--small">
-              <Image src={storyImage2} alt="Community workshop" fill className="cover-image" sizes="(max-width: 1024px) 100vw, 40vw" />
+              <Image src={storyImage2} alt="Participant at a Hiraad education research consultation" fill className="cover-image" sizes="(max-width: 1024px) 100vw, 40vw" />
             </div>
           </div>
         </div>

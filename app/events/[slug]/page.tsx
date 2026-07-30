@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 import { SingleEventPageContent } from "@/components/pages/SingleEventPageContent";
 import { getContentResolver } from "@/lib/site/content";
-import { getEventBySlug, getEventsContent, getEventSlugs } from "@/lib/site/events";
+import { getEventsContent, getEventSlugs } from "@/lib/site/events";
 
 interface EventPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-async function resolveEvent(slug: string) {
-  const [event, events] = await Promise.all([getEventBySlug(slug), getEventsContent()]);
+const resolveEvent = cache(async (slug: string) => {
+  const events = await getEventsContent();
+  const event = events.find((item) => item.slug === slug);
 
   if (!event) return null;
 
@@ -28,7 +30,7 @@ async function resolveEvent(slug: string) {
     event,
     relatedEvents: relatedFromReferences.length ? relatedFromReferences : fallbackRelated
   };
-}
+});
 
 export async function generateStaticParams() {
   const slugs = await getEventSlugs();
@@ -36,7 +38,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
-  const resolved = await resolveEvent(params.slug);
+  const { slug } = await params;
+  const resolved = await resolveEvent(slug);
 
   if (!resolved) {
     return {
@@ -51,7 +54,8 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
 }
 
 export default async function EventDetailPage({ params }: EventPageProps) {
-  const resolved = await resolveEvent(params.slug);
+  const { slug } = await params;
+  const resolved = await resolveEvent(slug);
   if (!resolved) {
     notFound();
   }
