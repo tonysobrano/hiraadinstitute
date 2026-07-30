@@ -19,6 +19,13 @@ const imageFiles: Record<string, string[]> = {
     "469714100_122158515128318499_6854909978711075528_n.jpg",
     "469826816_122158515314318499_4644162107258005886_n.jpg"
   ],
+  "hiraad-official-launch-2024": [
+    "launch-01.jpg",
+    "launch-02.jpg",
+    "launch-03.jpg",
+    "launch-04.jpg",
+    "launch-05.jpg"
+  ],
   "shaping-media-reporting-roundtable-2024": [
     "473029036_122166235358318499_5235080633841027297_n.jpg"
   ],
@@ -40,6 +47,9 @@ const imageFiles: Record<string, string[]> = {
   ],
   "somali-region-youth-forum-2026": [
     "615525496_122225388356318499_7076678841801677987_n.jpg"
+  ],
+  "research-data-collection-training-2026": [
+    "training-01.jpg"
   ],
   "hiraad-education-forum-2026": [
     "630433442_122228951144318499_3995938528270845913_n.jpg",

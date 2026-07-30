@@ -17,6 +17,22 @@
   },
   {
     "_type": "event",
+    "title": "Official Launch of Hiraad Institute",
+    "slug": {"_type": "slug", "current": "hiraad-official-launch-2024"},
+    "date": "2024-06-10",
+    "endDate": null,
+    "location": "Lotus Hotel, Jigjiga",
+    "excerpt": "Hiraad Institute formally launched as a public policy research institution before academics, public officials, traditional leaders, and civil society representatives.",
+    "highlight": "The launch established Hiraad's mission to cultivate inquiry, evidence-based public policy, and constructive dialogue in the Somali Region.",
+    "author": "Hiraad Institute",
+    "category": "Institutional Launch",
+    "sourceUrl": "https://www.linkedin.com/posts/hiraad-institute_yesterday-the-highly-anticipated-launching-activity-7206257084504403968-ita4",
+    "sourceLanguage": "English",
+    "verification": "The June 10, 2024 date and Lotus Hotel venue are confirmed by Hiraad's official launch announcement and the institute's June 11 event recap.",
+    "mainImageStatus": "Five original Hiraad launch photographs downloaded from the official institutional post."
+  },
+  {
+    "_type": "event",
     "title": "Roundtable on Shaping Media Reporting in the Somali Region",
     "slug": {"_type": "slug", "current": "shaping-media-reporting-roundtable-2024"},
     "date": "2024-11-30",
@@ -110,6 +126,22 @@
     "sourceLanguage": "Somali",
     "verification": "The January 20–21 dates and Duule Hotel venue are printed on the Facebook poster; the theme and objectives are confirmed in the post text.",
     "mainImageStatus": "Download and upload the Facebook event poster before publishing."
+  },
+  {
+    "_type": "event",
+    "title": "Basics of Research and Data Collection Training",
+    "slug": {"_type": "slug", "current": "research-data-collection-training-2026"},
+    "date": "2026-02-01",
+    "endDate": "2026-02-03",
+    "location": "Hiraad Institute, Jigjiga",
+    "excerpt": "A practical training for Hiraad's Research and Data Collection Team covering research fundamentals, methodology, research design, and effective data collection practices.",
+    "highlight": "The intensive program strengthened the team's ability to produce reliable, rigorous, and policy-relevant institutional research.",
+    "author": "Hiraad Institute",
+    "category": "Research Training",
+    "sourceUrl": "https://www.facebook.com/61559554975884/photos/d41d8cd9/122227827302318499/",
+    "sourceLanguage": "English",
+    "verification": "The official Facebook photo and institutional recap confirm the training purpose, audience, and two-to-three-day format. The event date is reconstructed from Hiraad's chronological Facebook archive.",
+    "mainImageStatus": "Original Facebook event photograph downloaded and stored locally."
   },
   {
     "_type": "event",

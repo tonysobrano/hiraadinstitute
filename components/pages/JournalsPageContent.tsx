@@ -1,4 +1,5 @@
 import { CTASection } from "@/components/site/CTASection";
+import { ButtonLink } from "@/components/site/ButtonLink";
 import { JournalArchive } from "@/components/site/JournalArchive";
 import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
@@ -22,6 +23,19 @@ export function JournalsPageContent({ c, journals }: JournalsPageContentProps) {
           "Browse Hiraad Institute's research papers and policy briefs, grounded in evidence from the Somali Region and designed for practical public-policy use."
         )}
       />
+
+      <section className="journal-submit-band">
+        <div className="container journal-submit-band-inner">
+          <div>
+            <p className="eyebrow eyebrow--accent">FOR RESEARCHERS</p>
+            <h2>Have research ready for review?</h2>
+            <p>
+              Submit an original research paper, policy brief, or journal article to Hiraad’s editorial team.
+            </p>
+          </div>
+          <ButtonLink href="/journals/submit" label="Submit Your Research" variant="accent" />
+        </div>
+      </section>
 
       <section className="section section--surface journal-archive">
         <div className="container">
