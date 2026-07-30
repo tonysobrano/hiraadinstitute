@@ -9,6 +9,12 @@ updates:
       time: "06:00"
       timezone: Africa/Addis_Ababa
     open-pull-requests-limit: 10
+    ignore:
+      # Next.js 15 does not support TypeScript 7's resolver changes.
+      # Keep receiving compatible TypeScript minor and patch updates.
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
     groups:
       production-minor-and-patch:
         dependency-type: production
@@ -29,6 +35,10 @@ updates:
       time: "06:15"
       timezone: Africa/Addis_Ababa
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
     groups:
       studio-minor-and-patch:
         update-types:
