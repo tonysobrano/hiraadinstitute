@@ -66,6 +66,7 @@ export function ResearchSubmissionForm() {
         className="research-form-honeypot"
         type="text"
         name="website"
+        hidden
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"

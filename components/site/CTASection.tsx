@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/site/ButtonLink";
+import { NewsletterSignupButton } from "@/components/site/NewsletterSignupButton";
 
 interface CTASectionProps {
   title: string;
@@ -15,7 +16,6 @@ export function CTASection({
   primaryLabel,
   primaryHref,
   secondaryLabel,
-  secondaryHref
 }: CTASectionProps) {
   return (
     <section className="cta-section" id="newsletter">
@@ -25,7 +25,7 @@ export function CTASection({
 
         <div className="cta-actions">
           <ButtonLink href={primaryHref} label={primaryLabel} variant="primary" />
-          <ButtonLink href={secondaryHref} label={secondaryLabel} variant="outline-light" />
+          <NewsletterSignupButton label={secondaryLabel} />
         </div>
       </div>
     </section>

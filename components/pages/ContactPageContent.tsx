@@ -58,7 +58,6 @@ export function ContactPageContent({ c }: ContactPageContentProps) {
   ];
 
   const contactFormContent = {
-    emailSubjectPrefix: c.t("contact.form.emailSubjectPrefix", "Collaboration Request"),
     fullNameLabel: c.t("contact.form.fullName", "Full Name"),
     fullNamePlaceholder: c.t("contact.form.fullNamePlaceholder", "Your name"),
     emailLabel: c.t("contact.form.email", "Email Address"),
@@ -73,9 +72,8 @@ export function ContactPageContent({ c }: ContactPageContentProps) {
       "Tell us how you would like to collaborate, and we will get back to you."
     ),
     submitLabel: c.t("contact.form.submit", "Send Message"),
-    note: c.t("contact.form.note", "Submitting opens your email app addressed to info@hiraadinstitute.org."),
-    success: c.t("contact.form.success", "Draft prepared successfully."),
-    notProvided: c.t("contact.form.none", "Not provided"),
+    note: c.t("contact.form.note", "Your message is sent securely to the Hiraad team."),
+    success: c.t("contact.form.success", "Thank you. Your message has been received."),
     interests: pathways.map((item) => item.title)
   };
 

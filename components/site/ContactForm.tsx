@@ -1,9 +1,10 @@
 "use client";
 
-import { type ChangeEvent, type FormEvent, useState } from "react";
+import { useActionState, useEffect, useRef } from "react";
+
+import { submitContactMessage, type PublicFormState } from "@/app/actions/forms";
 
 interface ContactFormContent {
-  emailSubjectPrefix: string;
   fullNameLabel: string;
   fullNamePlaceholder: string;
   emailLabel: string;
@@ -17,7 +18,6 @@ interface ContactFormContent {
   submitLabel: string;
   note: string;
   success: string;
-  notProvided: string;
   interests: string[];
 }
 
@@ -25,54 +25,31 @@ interface ContactFormProps {
   content: ContactFormContent;
 }
 
-interface ContactFormData {
-  fullName: string;
-  email: string;
-  organization: string;
-  interest: string;
-  message: string;
-}
-
-const initialFormData: ContactFormData = {
-  fullName: "",
-  email: "",
-  organization: "",
-  interest: "",
+const initialState: PublicFormState = {
+  status: "idle",
   message: ""
 };
 
 export function ContactForm({ content }: ContactFormProps) {
-  const [formData, setFormData] = useState<ContactFormData>(initialFormData);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [state, formAction, isPending] = useActionState(submitContactMessage, initialState);
 
-  const onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target;
-    setFormData((current) => ({ ...current, [name]: value }));
-    setIsSubmitted(false);
-  };
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const subject = `${content.emailSubjectPrefix} - ${formData.interest}`;
-    const body = [
-      `${content.fullNameLabel}: ${formData.fullName}`,
-      `${content.emailLabel}: ${formData.email}`,
-      `${content.organizationLabel}: ${formData.organization || content.notProvided}`,
-      "",
-      `${content.interestLabel}: ${formData.interest}`,
-      "",
-      `${content.messageLabel}:`,
-      formData.message
-    ].join("\n");
-
-    const mailto = `mailto:info@hiraadinstitute.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setIsSubmitted(true);
-    window.location.href = mailto;
-  };
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
 
   return (
-    <form className="contact-form" onSubmit={onSubmit}>
+    <form ref={formRef} className="contact-form" action={formAction}>
+      <input
+        className="form-honeypot"
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className="contact-form-grid">
         <label className="contact-form-field">
           <span>{content.fullNameLabel}</span>
@@ -81,8 +58,6 @@ export function ContactForm({ content }: ContactFormProps) {
             type="text"
             autoComplete="name"
             required
-            value={formData.fullName}
-            onChange={onChange}
             placeholder={content.fullNamePlaceholder}
           />
         </label>
@@ -94,8 +69,6 @@ export function ContactForm({ content }: ContactFormProps) {
             type="email"
             autoComplete="email"
             required
-            value={formData.email}
-            onChange={onChange}
             placeholder={content.emailPlaceholder}
           />
         </label>
@@ -106,15 +79,13 @@ export function ContactForm({ content }: ContactFormProps) {
             name="organization"
             type="text"
             autoComplete="organization"
-            value={formData.organization}
-            onChange={onChange}
             placeholder={content.organizationPlaceholder}
           />
         </label>
 
         <label className="contact-form-field">
           <span>{content.interestLabel}</span>
-          <select name="interest" required value={formData.interest} onChange={onChange}>
+          <select name="interest" required defaultValue="">
             <option value="">{content.interestPlaceholder}</option>
             {content.interests.map((item) => (
               <option key={item} value={item}>
@@ -131,20 +102,25 @@ export function ContactForm({ content }: ContactFormProps) {
           name="message"
           required
           rows={6}
-          value={formData.message}
-          onChange={onChange}
           placeholder={content.messagePlaceholder}
         />
       </label>
 
       <div className="contact-form-actions">
-        <button type="submit" className="btn btn-primary contact-form-submit">
-          {content.submitLabel}
+        <button type="submit" className="btn btn-primary contact-form-submit" disabled={isPending}>
+          {isPending ? "Sending…" : content.submitLabel}
         </button>
         <p className="contact-form-note">{content.note}</p>
       </div>
 
-      {isSubmitted ? <p className="contact-form-success">{content.success}</p> : null}
+      {state.status !== "idle" ? (
+        <p
+          className={state.status === "success" ? "form-message form-message--success" : "form-message form-message--error"}
+          role={state.status === "error" ? "alert" : "status"}
+        >
+          {state.message || content.success}
+        </p>
+      ) : null}
     </form>
   );
 }

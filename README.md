@@ -27,17 +27,16 @@ Legacy `/publications`, `/events`, and `/news-media` URLs redirect to the curren
 
 ## CMS model
 
-Sanity uses `pageContent` documents with:
+The embedded Sanity Studio is available at `/studio` and manages:
 
-- `slug` (page identifier)
-- `textOverrides[]` with `nodeName` (key) and `value`
-- `imageOverrides[]` with `nodeName` (key) and `url`
+- Publications
+- News
+- Events
+- Research submissions
+- Contact submissions
+- Newsletter subscribers
 
-Example keys:
-
-- `home.hero.title`
-- `home.hero.image`
-- `shared.cta.title`
+Page layout and shared website copy live in the Next.js codebase. Sanity stores editorial content and incoming submissions.
 
 ## Setup
 
@@ -59,13 +58,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-4. Run standalone Studio:
-
-```bash
-cd studio
-npm install
-npm run dev
-```
+4. Open the embedded Studio at `http://localhost:3000/studio`.
 
 ## Quality checks
 
@@ -78,19 +71,11 @@ npm run build
 ```
 
 `content:check` rejects duplicate event slugs, invalid dates, non-HTTPS sources, missing local images,
-and event-image manifest mismatches. GitHub Actions runs these checks for the website and Sanity Studio
+and event-image manifest mismatches. GitHub Actions runs these checks, including the embedded Studio build,
 on pull requests and pushes to `master`.
 
-Dependabot checks both applications weekly and opens grouped pull requests for safe minor and patch
+Dependabot checks the application weekly and opens grouped pull requests for safe minor and patch
 dependency updates. Updates are reviewed and tested before merging; they are not auto-merged.
-
-## Seed CMS documents
-
-Creates one `pageContent` doc per page slug:
-
-```bash
-npm run sanity:seed
-```
 
 ## Import the 3 homepage news posts into Sanity
 
@@ -114,6 +99,8 @@ npm run sanity:import-facebook-events
 - `SANITY_API_READ_TOKEN` gives the website viewer-only access when the production dataset is private.
 - `SANITY_API_WRITE_TOKEN` is required for seed/import scripts and the research submission form. Give it create,
   update, and asset-upload access to the production dataset, and never expose it to client-side code.
+- `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `CONTACT_NOTIFICATION_EMAIL`, and `NEWSLETTER_NOTIFICATION_EMAIL`
+  send contact form and newsletter signup notifications to the Hiraad inbox.
 
 Keep the read and write credentials separate. The public website should use the least-privileged read token;
 only trusted server-side workflows should receive the write token.

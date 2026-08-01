@@ -2,27 +2,6 @@ function groq(strings: TemplateStringsArray): string {
   return strings[0];
 }
 
-export const PAGE_CONTENT_QUERY = groq`
-  *[_type == "pageContent" && slug == $slug][0] {
-    slug,
-    textOverrides[]{
-      nodeName,
-      nodeId,
-      value
-    },
-    imageOverrides[]{
-      nodeName,
-      nodeId,
-      url
-    },
-    eventImageSets[]{
-      eventSlug,
-      "previewImageUrl": previewImage.asset->url,
-      "galleryImageUrls": galleryImages[].asset->url
-    }
-  }
-`;
-
 export const EVENTS_QUERY = groq`
   *[_type == "event"] | order(coalesce(date, eventDate, _createdAt) desc) {
     "slug": slug.current,

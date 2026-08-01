@@ -2,7 +2,7 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const publicationType = defineType({
   name: 'publication',
-  title: 'Publication',
+  title: 'Publications',
   type: 'document',
   fieldsets: [
     {
