@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/site/ButtonLink";
 import { CTASection } from "@/components/site/CTASection";
 import { CompactCard } from "@/components/site/Cards";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -143,32 +142,6 @@ export function ContactPageContent({ c }: ContactPageContentProps) {
             </article>
           </div>
 
-          <div className="contact-support-grid">
-            <article className="contact-box">
-              <h3>{c.t("contact.box.title", "Start a collaboration")}</h3>
-              <p>
-                {c.t(
-                  "contact.box.description",
-                  "Email: info@hiraadinstitute.org\nLocation: Jigjiga, Somali Region, Ethiopia"
-                )}
-              </p>
-              <ButtonLink
-                href="mailto:info@hiraadinstitute.org"
-                label={c.t("contact.box.button", "Contact Hiraad")}
-                variant="primary"
-              />
-            </article>
-
-            <article className="contact-aux-card">
-              <h3>{c.t("contact.aux.title", "What to include in your message")}</h3>
-              <p>
-                {c.t(
-                  "contact.aux.description",
-                  "For a faster response, include your organization, collaboration goal, preferred timeline, and any relevant links or context."
-                )}
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 

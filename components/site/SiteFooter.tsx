@@ -68,7 +68,11 @@ export function SiteFooter({ t }: SiteFooterProps) {
         <div className="site-footer-divider" />
         <div className="site-footer-bottom">
           <p>{text(t, "footer.bottom.copy", "© 2026 Hiraad Institute. All rights reserved.")}</p>
-          <p>{text(t, "footer.bottom.creditPlain", "Created by PrimeCreative")}</p>
+          <p>
+            <a href="https://primecreative.agency/" target="_blank" rel="noreferrer">
+              Website by Prime Creative
+            </a>
+          </p>
         </div>
       </div>
     </footer>
