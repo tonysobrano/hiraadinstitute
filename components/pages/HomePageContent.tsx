@@ -19,7 +19,7 @@ interface HomePageContentProps {
 export function HomePageContent({ c, newsItems }: HomePageContentProps) {
   const heroImage = c.i(
     "home.hero.image",
-    "/images/events/facebook/hiraad-education-forum-2026/630433442_122228951144318499_3995938528270845913_n.jpg"
+    "/images/home/hero-workshop-group-work.jpg"
   );
 
   const whatWeDoImage = c.i(
@@ -49,7 +49,7 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
           </div>
 
           <div className="hero-home-image-wrap">
-            <Image src={heroImage} alt="Participants at the Hiraad Education Forum" fill className="hero-home-image" sizes="(max-width: 1024px) 100vw, 42vw" />
+            <Image src={heroImage} alt="Participants working in small groups at a Hiraad Institute workshop" fill className="hero-home-image" sizes="(max-width: 1024px) 100vw, 42vw" />
           </div>
         </div>
       </section>
