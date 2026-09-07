@@ -46,12 +46,6 @@ export function EventsPageContent({ c, events }: EventsPageContentProps) {
             size="xl"
           />
 
-          <div className="events-directory-toolbar">
-            <p>
-              {localizedEvents.length} {localizedEvents.length === 1 ? "event" : "events"}
-            </p>
-          </div>
-
           <div className="events-directory-grid">
             {localizedEvents.map((event) => (
               <article className="event-directory-card" key={event.slug}>

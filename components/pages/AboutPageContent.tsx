@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Briefcase, Landmark, Megaphone, Users } from "lucide-react";
+import { Handshake, Landmark, Users } from "lucide-react";
 
 import { CTASection } from "@/components/site/CTASection";
 import { IconCard, NumberedRow } from "@/components/site/Cards";
@@ -29,7 +29,11 @@ export function AboutPageContent({ c }: AboutPageContentProps) {
         title={c.t("about.hero.title", "Shaping policy through\nlocally grounded research")}
         description={c.t(
           "about.hero.description",
-          "Hiraad Institute is an independent, non-partisan, non-profit public policy research institute\nbased in Jigjiga, Somali Region, Ethiopia."
+          "Hiraad Institute, a non-partisan, non-profit think tank established in the Somali Region of Ethiopia, fosters dialogue and contributes to evidence-based policy making. The Institute serves as a hub for policy-oriented research, analysis, and knowledge production."
+        )}
+        secondaryDescription={c.t(
+          "about.hero.secondaryDescription",
+          "The Institute is based in Jigjiga, Somali Region, Ethiopia."
         )}
       />
 
@@ -75,13 +79,13 @@ export function AboutPageContent({ c }: AboutPageContentProps) {
       <section className="section section--dark about-mission-vision">
         <div className="container split-grid">
           <article className="dark-panel">
-            <p className="eyebrow eyebrow--accent">{c.t("about.mission.eyebrow", "WHO WE ARE")}</p>
-            <p>{c.t("about.mission.text", "Hiraad Institute is dedicated to advancing evidence-based policymaking in the Somali Region of Ethiopia by producing high-quality, independent research; fostering inclusive policy dialogue; and strengthening the capacity of institutions and communities to engage effectively in governance and development processes.")}</p>
+            <p className="eyebrow eyebrow--accent">{c.t("about.mission.eyebrow", "OUR MISSION")}</p>
+            <p>{c.t("about.mission.text", "To cultivate a culture of inquiry and evidence-based public policy-making in the Somali Region.")}</p>
           </article>
 
           <article className="dark-panel">
             <p className="eyebrow eyebrow--accent">{c.t("about.vision.eyebrow", "OUR VISION")}</p>
-            <p>{c.t("about.vision.text", "Hiraad Institute envisions a Somali Region where public policy is informed by evidence rather than assumption, where communities actively participate in shaping their futures, and where local knowledge contributes meaningfully to national, regional, and global policy debates.")}</p>
+            <p>{c.t("about.vision.text", "An empowered Somali Region where evidence-based public policy-making guides policies, strategies, and interventions.")}</p>
           </article>
         </div>
       </section>
@@ -142,42 +146,34 @@ export function AboutPageContent({ c }: AboutPageContentProps) {
       <section className="section section--muted about-constituencies">
         <div className="container">
           <SectionIntro
-            eyebrow={c.t("about.constituencies.eyebrow", "WHO WE SERVE")}
-            title={c.t("about.constituencies.title", "Our constituencies and stakeholders")}
+            eyebrow={c.t("about.constituencies.eyebrow", "OUR TARGET")}
+            title={c.t("about.constituencies.title", "Who we serve")}
             size="lg"
           />
 
-          <div className="grid grid--four">
+          <div className="grid grid--three">
             <IconCard
               icon={Landmark}
-              title={c.t("about.constituencies.1.title", "Policymakers & Government")}
+              title={c.t("about.constituencies.1.title", "Policymakers")}
               description={c.t(
                 "about.constituencies.1.description",
-                "Policy briefs, technical notes, evidence-based recommendations, expert briefings, and closed-door consultations for federal, regional, and local governance structures."
+                "Hiraad Institute supports evidence-based decision-making by producing objective, policy-oriented research on policy and governance, the peace-conflict nexus, economic development, climate change, history and collective memory, and social cohesion. The Institute provides policy briefs, research reports, panel discussions, and timely recommendations to government institutions, parliamentarians, and policy advisors to strengthen legislation and public policy."
+              )}
+            />
+            <IconCard
+              icon={Handshake}
+              title={c.t("about.constituencies.2.title", "Stakeholders & Development Partners")}
+              description={c.t(
+                "about.constituencies.2.description",
+                "The Institute collaborates with civil society organizations, development partners, academic institutions, and private sector actors to promote research-informed programming and collective action. Through joint research, dialogue, and knowledge sharing, Hiraad contributes to stronger institutions, sustainable investments, and inclusive regional development."
               )}
             />
             <IconCard
               icon={Users}
-              title={c.t("about.constituencies.2.title", "Civil Society & Development Partners")}
-              description={c.t(
-                "about.constituencies.2.description",
-                "Co-produced research, advocacy strengthening through evidence, context-sensitive program design, and evaluation of development interventions."
-              )}
-            />
-            <IconCard
-              icon={Briefcase}
-              title={c.t("about.constituencies.3.title", "Private Sector & Economic Actors")}
+              title={c.t("about.constituencies.3.title", "The Public")}
               description={c.t(
                 "about.constituencies.3.description",
-                "Research on investment climates, regulatory environments, infrastructure, market access, employment, skills development, and value chain growth."
-              )}
-            />
-            <IconCard
-              icon={Megaphone}
-              title={c.t("about.constituencies.4.title", "Communities, Media & Public")}
-              description={c.t(
-                "about.constituencies.4.description",
-                "Simplified reports, public forums, panel discussions, community outreach programs, media briefings, and commentary for informed citizens."
+                "Hiraad is committed to making research accessible through simplified publications, policy briefs, infographics, public forums, panel discussions, and community engagement. By promoting informed public dialogue, the Institute strengthens civic participation, encourages accountability, and supports evidence-based public discourse."
               )}
             />
           </div>
