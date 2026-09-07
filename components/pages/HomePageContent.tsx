@@ -49,7 +49,15 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
           </div>
 
           <div className="hero-home-image-wrap">
-            <Image src={heroImage} alt="Participants working in small groups at a Hiraad Institute workshop" fill className="hero-home-image" sizes="(max-width: 1024px) 100vw, 42vw" />
+            <Image
+              src={heroImage}
+              alt="Participants working in small groups at a Hiraad Institute workshop"
+              fill
+              priority
+              quality={90}
+              className="hero-home-image"
+              sizes="100vw"
+            />
           </div>
         </div>
       </section>
