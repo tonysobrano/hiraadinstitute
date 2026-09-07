@@ -4046,23 +4046,10 @@ img {
   max-width: 820px;
 }
 
-.events-directory-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 32px;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 24px;
-}
-
-.events-directory-toolbar p {
-  margin: 0;
-  color: var(--text-tertiary);
-  font-family: var(--font-jetbrains), monospace;
-  font-size: 12px;
-}
-
 .events-directory-grid {
+  margin-top: 24px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 32px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px 24px;
@@ -4167,10 +4154,6 @@ img {
   .events-directory-grid {
     grid-template-columns: 1fr;
     gap: 22px;
-  }
-
-  .events-directory-toolbar {
-    margin-bottom: 24px;
   }
 
   .event-directory-card-content {
