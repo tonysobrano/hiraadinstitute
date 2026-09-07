@@ -2,7 +2,10 @@
   {
     "_type": "event",
     "title": "Hiraad Pre-Launch Workshop",
-    "slug": {"_type": "slug", "current": "hiraad-pre-launch-workshop-2024"},
+    "slug": {
+      "_type": "slug",
+      "current": "hiraad-pre-launch-workshop-2024"
+    },
     "date": "2024-06-05",
     "endDate": null,
     "location": "Masaf Space, Jigjiga",
@@ -18,7 +21,10 @@
   {
     "_type": "event",
     "title": "Official Launch of Hiraad Institute",
-    "slug": {"_type": "slug", "current": "hiraad-official-launch-2024"},
+    "slug": {
+      "_type": "slug",
+      "current": "hiraad-official-launch-2024"
+    },
     "date": "2024-06-10",
     "endDate": null,
     "location": "Lotus Hotel, Jigjiga",
@@ -33,8 +39,49 @@
   },
   {
     "_type": "event",
+    "title": "Workshop on Six Proposed Policy Research Concepts",
+    "slug": {
+      "_type": "slug",
+      "current": "six-research-concepts-workshop-2024"
+    },
+    "date": "2024-08-11",
+    "endDate": null,
+    "location": "Jigjiga",
+    "excerpt": "Hiraad Institute hosted a workshop at which six proposed research concepts were presented, alongside training for the research team on research methodology.",
+    "highlight": "The Institute set out to produce research covering the different areas of community life in order to strengthen the advice available to policymakers.",
+    "author": "Hiraad Institute",
+    "category": "Research Workshop",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "English and Somali",
+    "verification": "Date, six research concepts, and the accompanying methodology training are confirmed in the Institute's bilingual Facebook post of 11 August 2024.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
+    "title": "Hiraad Team Meeting with the Leadership of the Somali Region Youth Council",
+    "slug": {
+      "_type": "slug",
+      "current": "youth-council-leadership-meeting-2024"
+    },
+    "date": "2024-10-19",
+    "endDate": null,
+    "location": "Jigjiga",
+    "excerpt": "Hiraad Institute's team met the leadership of the Somali Region Youth Council, at the Council's request, to discuss ways of cooperating and to chart an institutional partnership.",
+    "highlight": "Both parties agreed to work together on issues of common interest, including policy research and panel discussions on youth engagement and empowerment — a standing thematic area of Hiraad's research and public engagement.",
+    "author": "Hiraad Institute",
+    "category": "Partnership Meeting",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "Somali",
+    "verification": "Date, purpose, and agreed areas of cooperation are confirmed in the Institute's Somali-language Facebook post of 19 October 2024.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
     "title": "Roundtable on Shaping Media Reporting in the Somali Region",
-    "slug": {"_type": "slug", "current": "shaping-media-reporting-roundtable-2024"},
+    "slug": {
+      "_type": "slug",
+      "current": "shaping-media-reporting-roundtable-2024"
+    },
     "date": "2024-11-30",
     "endDate": null,
     "location": "Hadiya Coffee, second floor, Jigjiga",
@@ -50,7 +97,10 @@
   {
     "_type": "event",
     "title": "Somali Region Youth Forum 2025",
-    "slug": {"_type": "slug", "current": "somali-region-youth-forum-2025"},
+    "slug": {
+      "_type": "slug",
+      "current": "somali-region-youth-forum-2025"
+    },
     "date": "2025-04-23",
     "endDate": "2025-04-25",
     "location": "Jigjiga",
@@ -66,7 +116,10 @@
   {
     "_type": "event",
     "title": "Book Launch and Discussion: Smugglers, Speculators and the City in the Ethiopia–Somalia Borderlands",
-    "slug": {"_type": "slug", "current": "smugglers-speculators-city-book-launch-2025"},
+    "slug": {
+      "_type": "slug",
+      "current": "smugglers-speculators-city-book-launch-2025"
+    },
     "date": "2025-08-03",
     "endDate": null,
     "location": "Masaf Spaces, Jigjiga",
@@ -82,7 +135,10 @@
   {
     "_type": "event",
     "title": "Winning the Heart Book Launch",
-    "slug": {"_type": "slug", "current": "winning-the-heart-book-launch-2025"},
+    "slug": {
+      "_type": "slug",
+      "current": "winning-the-heart-book-launch-2025"
+    },
     "date": "2025-09-20",
     "endDate": null,
     "location": "JCM Hall, Hashimi Mosque, Jigjiga",
@@ -97,15 +153,18 @@
   },
   {
     "_type": "event",
-    "title": "Education Research Stakeholder Preview",
-    "slug": {"_type": "slug", "current": "education-research-stakeholder-preview-2025"},
+    "title": "Reshaping the Somali Region Education System: Policy Research Validation Workshop",
+    "slug": {
+      "_type": "slug",
+      "current": "education-research-stakeholder-preview-2025"
+    },
     "date": "2025-11-02",
     "endDate": null,
     "location": "Jigjiga",
-    "excerpt": "Hiraad presented preliminary research on the factors affecting Somali Region students' Grade 12 examination results to education stakeholders for discussion and feedback.",
-    "highlight": "Participants included the education bureau, NGOs, colleges, private schools, and education specialists.",
+    "excerpt": "Hiraad's research team presented preliminary findings of the “Reshaping the Somali Region Education System” policy research to education stakeholders and partners for discussion, reflection, feedback, and validation.",
+    "highlight": "Participants included the regional education bureau, NGOs, colleges, private schools, and education specialists, whose feedback fed directly into the final policy brief.",
     "author": "Hiraad Institute",
-    "category": "Research Consultation",
+    "category": "Research Validation Workshop",
     "sourceUrl": "https://www.facebook.com/61559554975884/posts/waxa-noo-qabsoomay-saaka-kulan-si-hordhac-ah-loogu-soo-bandhigayay-bahwadaagta-w/122215730552318499/",
     "sourceLanguage": "Somali",
     "verification": "Date, subject, and participant groups confirmed in the Facebook post. The specific venue is not stated.",
@@ -113,8 +172,30 @@
   },
   {
     "_type": "event",
+    "title": "Hiraad Volunteers Consultation",
+    "slug": {
+      "_type": "slug",
+      "current": "hiraad-volunteers-consultation-2025"
+    },
+    "date": "2025-11-09",
+    "endDate": null,
+    "location": "Hiraad Institute, Jigjiga",
+    "excerpt": "Hiraad Institute's leadership team held an orientation meeting with the young people recruited to work with the Institute as volunteers, covering the role volunteers play in its research and public engagement work.",
+    "highlight": "Volunteers asked for solid professional training in research and data collection, which the leadership team undertook to provide at the earliest opportunity.",
+    "author": "Hiraad Institute",
+    "category": "Institutional Event",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "Somali",
+    "verification": "Date and content confirmed in the Institute's Somali-language Facebook post of 9 November 2025, following the volunteer call of 28 August 2025 and the applicant update of 2 September 2025.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
     "title": "Somali Region Youth Forum 2026",
-    "slug": {"_type": "slug", "current": "somali-region-youth-forum-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "somali-region-youth-forum-2026"
+    },
     "date": "2026-01-20",
     "endDate": "2026-01-21",
     "location": "Duule Hotel, Jigjiga",
@@ -129,24 +210,49 @@
   },
   {
     "_type": "event",
-    "title": "Basics of Research and Data Collection Training",
-    "slug": {"_type": "slug", "current": "research-data-collection-training-2026"},
+    "title": "Memorandum of Understanding with Hope Institute for Leadership Studies",
+    "slug": {
+      "_type": "slug",
+      "current": "hope-institute-mou-signing-2026"
+    },
     "date": "2026-02-01",
-    "endDate": "2026-02-03",
+    "endDate": null,
     "location": "Hiraad Institute, Jigjiga",
-    "excerpt": "A practical training for Hiraad's Research and Data Collection Team covering research fundamentals, methodology, research design, and effective data collection practices.",
-    "highlight": "The intensive program strengthened the team's ability to produce reliable, rigorous, and policy-relevant institutional research.",
+    "excerpt": "Hiraad Institute for Public Policy Studies signed a Memorandum of Understanding with Hope Institute for Leadership Studies, based in Nairobi, Kenya.",
+    "highlight": "The partnership strengthens collaboration in research, public policy, leadership development, community engagement, and institutional capacity building, contributing to inclusive and sustainable development.",
     "author": "Hiraad Institute",
-    "category": "Research Training",
-    "sourceUrl": "https://www.facebook.com/61559554975884/photos/d41d8cd9/122227827302318499/",
+    "category": "Partnership",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
     "sourceLanguage": "English",
-    "verification": "The official Facebook photo and institutional recap confirm the training purpose, audience, and two-to-three-day format. The event date is reconstructed from Hiraad's chronological Facebook archive.",
-    "mainImageStatus": "Original Facebook event photograph downloaded and stored locally."
+    "verification": "Date, counterpart institution, and scope of the MoU confirmed in the Institute's Facebook post of 1 February 2026.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
+    "title": "Data Collection and Familiarization Roundtable Discussion",
+    "slug": {
+      "_type": "slug",
+      "current": "data-collection-familiarization-roundtable-2026"
+    },
+    "date": "2026-02-08",
+    "endDate": null,
+    "location": "Hiraad Institute, Jigjiga",
+    "excerpt": "Hiraad Institute conducted a data collection and familiarization roundtable discussion to orient the research and data collection team on three research projects.",
+    "highlight": "The workshop piloted the data collection tools and provided comprehensive familiarization with the research projects, ensuring a clear understanding among data collectors to support effective and accurate implementation.",
+    "author": "Hiraad Institute",
+    "category": "Research Workshop",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "English",
+    "verification": "Date and description confirmed in the Institute's Facebook post of 8 February 2026.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
   },
   {
     "_type": "event",
     "title": "Hiraad Education Forum 2026",
-    "slug": {"_type": "slug", "current": "hiraad-education-forum-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "hiraad-education-forum-2026"
+    },
     "date": "2026-02-10",
     "endDate": null,
     "location": "Nomad Hotel, Jigjiga",
@@ -161,8 +267,30 @@
   },
   {
     "_type": "event",
+    "title": "Basics of Research and Data Collection Training — Cohort One",
+    "slug": {
+      "_type": "slug",
+      "current": "research-data-collection-training-2026"
+    },
+    "date": "2026-02-14",
+    "endDate": null,
+    "location": "Masaf Space, Jigjiga",
+    "excerpt": "The Basics of Research and Data Collection Training was delivered for the Institute's Research and Data Collection Team, strengthening foundational knowledge and practical competencies in research practice.",
+    "highlight": "Designed as a two- to three-day intensive programme, the training covered the research process, methodological considerations, practical guidance on conducting research, and effective data collection techniques.",
+    "author": "Hiraad Institute",
+    "category": "Research Training",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "English",
+    "verification": "Date, audience, venue, and two-to-three-day format confirmed in the Institute's Facebook post of 14 February 2026. Corrects an earlier record that used the 1 February 2026 MoU signing post as its source and preview image.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
     "title": "Forum on Strengthening the Diaspora's Role in Regional Stability",
-    "slug": {"_type": "slug", "current": "diaspora-role-regional-stability-forum-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "diaspora-role-regional-stability-forum-2026"
+    },
     "date": "2026-05-09",
     "endDate": "2026-05-10",
     "location": "Lotus Hotel, Jigjiga",
@@ -178,7 +306,10 @@
   {
     "_type": "event",
     "title": "Consultation on Establishing a Somali Region Research Journal",
-    "slug": {"_type": "slug", "current": "somali-region-research-journal-consultation-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "somali-region-research-journal-consultation-2026"
+    },
     "date": "2026-05-31",
     "endDate": null,
     "location": "Hiraad Institute, Jigjiga",
@@ -194,7 +325,10 @@
   {
     "_type": "event",
     "title": "Research Presentation: National Dialogue and the Somali Region",
-    "slug": {"_type": "slug", "current": "national-dialogue-somali-region-research-presentation-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "national-dialogue-somali-region-research-presentation-2026"
+    },
     "date": "2026-07-05",
     "endDate": null,
     "location": "Istanbul Hotel, Jigjiga",
@@ -210,7 +344,10 @@
   {
     "_type": "event",
     "title": "Hiraad–Rift Valley Institute Researchers' Roundtable",
-    "slug": {"_type": "slug", "current": "hiraad-rvi-researchers-roundtable-2026"},
+    "slug": {
+      "_type": "slug",
+      "current": "hiraad-rvi-researchers-roundtable-2026"
+    },
     "date": "2026-07-27",
     "endDate": null,
     "location": "Jigjiga",
@@ -222,5 +359,43 @@
     "sourceLanguage": "English",
     "verification": "The closing post was published on July 27, 2026 and confirms the participating institutions, purpose, cultural exchange, and collaboration outcome. The exact venue is not stated.",
     "mainImageStatus": "Download and upload one of the Facebook post photographs before publishing."
+  },
+  {
+    "_type": "event",
+    "title": "Basics of Research and Data Collection Training — Cohort Two",
+    "slug": {
+      "_type": "slug",
+      "current": "research-data-collection-training-cohort-two-2026"
+    },
+    "date": "2026-08-08",
+    "endDate": null,
+    "location": "Jigjiga",
+    "excerpt": "Hiraad Institute commenced Cohort Two of its quarterly Basics of Research and Data Collection Training, bringing together more than 70 participants for an intensive capacity-building programme.",
+    "highlight": "Opened by Abdilahi Elmi, Deputy Director for Research and Development, the training ran over three consecutive weekends and covered research design, literature review, methodology, and data collection.",
+    "author": "Hiraad Institute",
+    "category": "Research Training",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "English",
+    "verification": "Start date, participant number, opening remarks, and the three-weekend format are confirmed in the Institute's Facebook post of 8 August 2026.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
+  },
+  {
+    "_type": "event",
+    "title": "Hiraad Research Journal Launch and Cohort Two Certification Ceremony",
+    "slug": {
+      "_type": "slug",
+      "current": "research-journal-launch-certification-2026"
+    },
+    "date": "2026-08-29",
+    "endDate": null,
+    "location": "Duule Luxury Hotel, Jigjiga",
+    "excerpt": "Hiraad Institute certified the second cohort of its Basics of Research and Data Collection trainees and officially launched the Hiraad Research Journal.",
+    "highlight": "The programme featured welcoming and opening remarks, the official presentation of the newly launched Hiraad Research Journal, and the certification of the second cohort of research and data collection trainees.",
+    "author": "Hiraad Institute",
+    "category": "Institutional Event",
+    "sourceUrl": "https://web.facebook.com/profile/61559554975884",
+    "sourceLanguage": "English",
+    "verification": "Venue and ceremony date are confirmed on the event backdrop and in the Institute's Facebook recap posted 30 August 2026.",
+    "mainImageStatus": "Original Facebook post photographs downloaded and stored locally."
   }
 ]

@@ -7,11 +7,12 @@ interface SiteFooterProps {
 }
 
 const researchLinks = [
-  { key: "footer.research.governance", label: "Governance", href: "/research#governance" },
-  { key: "footer.research.peace", label: "Peace & Cohesion", href: "/research#peace-cohesion" },
-  { key: "footer.research.climate", label: "Climate Resilience", href: "/research#climate-resilience" },
-  { key: "footer.research.livelihoods", label: "Livelihoods", href: "/research#livelihoods" },
-  { key: "footer.research.social", label: "Social Services", href: "/research#social-services" }
+  { key: "footer.research.peace", label: "Peace-Conflict Nexus", href: "/research#peace-conflict-nexus" },
+  { key: "footer.research.governance", label: "Policy & Governance", href: "/research#policy-governance" },
+  { key: "footer.research.pastoralism", label: "Pastoralism & Development", href: "/research#pastoralism-agriculture-development" },
+  { key: "footer.research.climate", label: "Climate & Environment", href: "/research#climate-environment" },
+  { key: "footer.research.justice", label: "Transitional Justice", href: "/research#transitional-justice-social-cohesion" },
+  { key: "footer.research.history", label: "History & Collective Memory", href: "/research#history-collective-memory" }
 ];
 
 const instituteLinks = [

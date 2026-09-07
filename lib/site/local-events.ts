@@ -12,6 +12,100 @@ interface StagedEvent {
 }
 
 const imageFiles: Record<string, string[]> = {
+  "hope-institute-mou-signing-2026": [
+    "hope-institute-mou-signing-2026-01.jpg",
+    "hope-institute-mou-signing-2026-02.jpg",
+    "hope-institute-mou-signing-2026-03.jpg",
+    "hope-institute-mou-signing-2026-04.jpg"
+  ],
+  "youth-council-leadership-meeting-2024": [
+    "youth-council-leadership-meeting-2024-01.jpg",
+    "youth-council-leadership-meeting-2024-02.jpg",
+    "youth-council-leadership-meeting-2024-03.jpg",
+    "youth-council-leadership-meeting-2024-04.jpg",
+    "youth-council-leadership-meeting-2024-05.jpg",
+    "youth-council-leadership-meeting-2024-06.jpg",
+    "youth-council-leadership-meeting-2024-07.jpg",
+    "youth-council-leadership-meeting-2024-08.jpg",
+    "youth-council-leadership-meeting-2024-09.jpg",
+    "youth-council-leadership-meeting-2024-10.jpg",
+    "youth-council-leadership-meeting-2024-11.jpg"
+  ],
+  "six-research-concepts-workshop-2024": [
+    "six-research-concepts-workshop-2024-01.jpg",
+    "six-research-concepts-workshop-2024-02.jpg",
+    "six-research-concepts-workshop-2024-03.jpg",
+    "six-research-concepts-workshop-2024-04.jpg",
+    "six-research-concepts-workshop-2024-05.jpg",
+    "six-research-concepts-workshop-2024-06.jpg",
+    "six-research-concepts-workshop-2024-07.jpg",
+    "six-research-concepts-workshop-2024-08.jpg",
+    "six-research-concepts-workshop-2024-09.jpg",
+    "six-research-concepts-workshop-2024-10.jpg",
+    "six-research-concepts-workshop-2024-11.jpg",
+    "six-research-concepts-workshop-2024-12.jpg"
+  ],
+  "hiraad-volunteers-consultation-2025": [
+    "hiraad-volunteers-consultation-2025-01.jpg",
+    "hiraad-volunteers-consultation-2025-02.jpg",
+    "hiraad-volunteers-consultation-2025-03.jpg",
+    "hiraad-volunteers-consultation-2025-04.jpg",
+    "hiraad-volunteers-consultation-2025-05.jpg",
+    "hiraad-volunteers-consultation-2025-06.jpg",
+    "hiraad-volunteers-consultation-2025-07.jpg",
+    "hiraad-volunteers-consultation-2025-08.jpg",
+    "hiraad-volunteers-consultation-2025-09.jpg",
+    "hiraad-volunteers-consultation-2025-10.jpg",
+    "hiraad-volunteers-consultation-2025-11.jpg",
+    "hiraad-volunteers-consultation-2025-12.jpg"
+  ],
+  "data-collection-familiarization-roundtable-2026": [
+    "data-collection-familiarization-roundtable-2026-01.jpg",
+    "data-collection-familiarization-roundtable-2026-02.jpg",
+    "data-collection-familiarization-roundtable-2026-03.jpg",
+    "data-collection-familiarization-roundtable-2026-04.jpg",
+    "data-collection-familiarization-roundtable-2026-05.jpg",
+    "data-collection-familiarization-roundtable-2026-06.jpg",
+    "data-collection-familiarization-roundtable-2026-07.jpg",
+    "data-collection-familiarization-roundtable-2026-08.jpg",
+    "data-collection-familiarization-roundtable-2026-09.jpg",
+    "data-collection-familiarization-roundtable-2026-10.jpg",
+    "data-collection-familiarization-roundtable-2026-11.jpg",
+    "data-collection-familiarization-roundtable-2026-12.jpg",
+    "data-collection-familiarization-roundtable-2026-13.jpg",
+    "data-collection-familiarization-roundtable-2026-14.jpg",
+    "data-collection-familiarization-roundtable-2026-15.jpg",
+    "data-collection-familiarization-roundtable-2026-16.jpg",
+    "data-collection-familiarization-roundtable-2026-17.jpg",
+    "data-collection-familiarization-roundtable-2026-18.jpg",
+    "data-collection-familiarization-roundtable-2026-19.jpg"
+  ],
+  "research-data-collection-training-cohort-two-2026": [
+    "research-data-collection-training-cohort-two-2026-01.jpg",
+    "research-data-collection-training-cohort-two-2026-02.jpg",
+    "research-data-collection-training-cohort-two-2026-03.jpg",
+    "research-data-collection-training-cohort-two-2026-04.jpg",
+    "research-data-collection-training-cohort-two-2026-05.jpg",
+    "research-data-collection-training-cohort-two-2026-06.jpg",
+    "research-data-collection-training-cohort-two-2026-07.jpg",
+    "research-data-collection-training-cohort-two-2026-08.jpg",
+    "research-data-collection-training-cohort-two-2026-09.jpg",
+    "research-data-collection-training-cohort-two-2026-10.jpg"
+  ],
+  "research-journal-launch-certification-2026": [
+    "research-journal-launch-certification-2026-01.jpg",
+    "research-journal-launch-certification-2026-02.jpg",
+    "research-journal-launch-certification-2026-03.jpg",
+    "research-journal-launch-certification-2026-04.jpg",
+    "research-journal-launch-certification-2026-05.jpg",
+    "research-journal-launch-certification-2026-06.jpg",
+    "research-journal-launch-certification-2026-07.jpg",
+    "research-journal-launch-certification-2026-08.jpg",
+    "research-journal-launch-certification-2026-09.jpg",
+    "research-journal-launch-certification-2026-10.jpg",
+    "research-journal-launch-certification-2026-11.jpg",
+    "research-journal-launch-certification-2026-12.jpg"
+  ],
   "hiraad-pre-launch-workshop-2024": [
     "469459171_122158514912318499_2443519684895701214_n.jpg",
     "469582863_122158515494318499_6025401238889922049_n.jpg",
@@ -49,7 +143,18 @@ const imageFiles: Record<string, string[]> = {
     "615525496_122225388356318499_7076678841801677987_n.jpg"
   ],
   "research-data-collection-training-2026": [
-    "training-01.jpg"
+    "research-data-collection-training-2026-01.jpg",
+    "research-data-collection-training-2026-02.jpg",
+    "research-data-collection-training-2026-03.jpg",
+    "research-data-collection-training-2026-04.jpg",
+    "research-data-collection-training-2026-05.jpg",
+    "research-data-collection-training-2026-06.jpg",
+    "research-data-collection-training-2026-07.jpg",
+    "research-data-collection-training-2026-08.jpg",
+    "research-data-collection-training-2026-09.jpg",
+    "research-data-collection-training-2026-10.jpg",
+    "research-data-collection-training-2026-11.jpg",
+    "research-data-collection-training-2026-12.jpg"
   ],
   "hiraad-education-forum-2026": [
     "630433442_122228951144318499_3995938528270845913_n.jpg",

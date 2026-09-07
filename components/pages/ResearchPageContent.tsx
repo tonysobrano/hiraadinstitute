@@ -4,7 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
 import type { ContentResolver } from "@/lib/site/types";
-import { BookOpen, CloudSun, Handshake, HeartPulse, ScrollText, Shield, TrendingUp, Wheat } from "lucide-react";
+import { CalendarDays, CloudSun, Handshake, MessagesSquare, Scale, ScrollText, Shield, Users, Wheat } from "lucide-react";
 
 interface ResearchPageContentProps {
   c: ContentResolver;
@@ -13,67 +13,57 @@ interface ResearchPageContentProps {
 export function ResearchPageContent({ c }: ResearchPageContentProps) {
   const thematicAreas = [
     {
+      id: "peace-conflict-nexus",
       icon: Handshake,
-      title: c.t("research.thematic.1.title", "Peace, Conflict & Social Cohesion"),
+      title: c.t("research.thematic.1.title", "Peace-Conflict Nexus"),
       description: c.t(
         "research.thematic.1.description",
-        "In-depth analysis of conflict drivers at local, regional, and cross-border levels — including clan dynamics, resource competition, youth marginalization, and the interaction between formal and informal authority. Research on peacebuilding, community-based conflict resolution, and long-term stability."
+        "The Institute examines the drivers of conflict, violence, and insecurity in the Somali Region while developing practical approaches to peacebuilding, conflict prevention, reconciliation, and social cohesion. Particular attention is given to youth engagement in peace processes and community-based conflict resolution."
       )
     },
     {
+      id: "policy-governance",
       icon: Shield,
-      title: c.t("research.thematic.2.title", "Policy, Governance & Accountability"),
+      title: c.t("research.thematic.2.title", "Policy and Governance"),
       description: c.t(
         "research.thematic.2.description",
-        "Examining how policies are formulated, implemented, and experienced within the Somali Region. Focus on institutional performance, transparency, accountability, rule of law, citizen-state relations, and how governance reforms translate at regional and local levels."
+        "Hiraad conducts research on public policy, governance systems, institutional accountability, transparency, stakeholder engagement, rule of law, and human rights to strengthen effective and responsive public institutions."
       )
     },
     {
+      id: "pastoralism-agriculture-development",
       icon: Wheat,
-      title: c.t("research.thematic.3.title", "Pastoralism, Agriculture & Livelihoods"),
+      title: c.t("research.thematic.3.title", "Pastoralism, Agriculture, and Development"),
       description: c.t(
         "research.thematic.3.description",
-        "Pastoralism as a central pillar of regional development — examining climate variability, rangeland degradation, market access, mobility constraints, and sustainable livelihood transformation that respects traditional systems."
+        "Recognizing pastoralism as the backbone of the regional economy, the Institute studies challenges related to drought, natural resource management, livestock production, market access, and agricultural transformation. Research aims to improve livelihoods, resilience, and food security."
       )
     },
     {
-      icon: HeartPulse,
-      title: c.t("research.thematic.4.title", "Social Services & Human Development"),
+      id: "climate-environment",
+      icon: CloudSun,
+      title: c.t("research.thematic.4.title", "Climate Change and the Environment"),
       description: c.t(
         "research.thematic.4.description",
-        "Assessing availability, quality, and distribution of education, healthcare, water, and sanitation. Examining structural barriers including geographic remoteness, capacity gaps, financing constraints, and inequalities affecting women, children, and pastoralists."
+        "Hiraad researches the impacts of climate change — including drought, flooding, and environmental degradation — and promotes adaptation strategies that strengthen resilience and support sustainable development."
       )
     },
     {
-      icon: CloudSun,
-      title: c.t("research.thematic.5.title", "Climate Change & Environmental Resilience"),
+      id: "transitional-justice-social-cohesion",
+      icon: Scale,
+      title: c.t("research.thematic.5.title", "Transitional Justice and Social Cohesion"),
       description: c.t(
         "research.thematic.5.description",
-        "Understanding immediate climate impacts and long-term adaptation needs — mapping vulnerability, analyzing environmental trends, and informing climate-resilient development strategies and disaster risk reduction."
+        "Transitional justice, trauma healing, and social cohesion are fundamental for societies emerging from violent conflict, political exclusion, and long-standing neglect, as in the Somali Region. Hiraad conducts policy research and public engagement in these areas to address past grievances and support sustainable peace and development."
       )
     },
     {
-      icon: TrendingUp,
-      title: c.t("research.thematic.6.title", "Economic Development & Structural Transformation"),
+      id: "history-collective-memory",
+      icon: ScrollText,
+      title: c.t("research.thematic.6.title", "History and Collective Memory"),
       description: c.t(
         "research.thematic.6.description",
-        "Examining infrastructure gaps, labor markets, investment environments, and access to finance. Sectoral analysis identifying opportunities for inclusive growth, job creation, cross-border trade, and value chain development."
-      )
-    },
-    {
-      icon: BookOpen,
-      title: c.t("research.thematic.7.title", "Religion, Culture & Social Values"),
-      description: c.t(
-        "research.thematic.7.description",
-        "Exploring how religious institutions, cultural values, and traditional practices influence social cohesion, ethical governance, conflict resolution, and community support systems. Integrating these into development policies."
-      )
-    },
-    {
-      icon: ScrollText,
-      title: c.t("research.thematic.8.title", "History, Heritage & Collective Memory"),
-      description: c.t(
-        "research.thematic.8.description",
-        "Researching historical trajectories, heritage sites, oral histories, and collective memory. Understanding history to interpret present governance challenges, identity politics, and social relations."
+        "Hiraad recognizes history and collective memory as foundational pillars of society. The Institute researches the region's historical legacy, cultural identity, and collective memory while promoting their integration into sustainable development and social cohesion initiatives."
       )
     }
   ];
@@ -112,6 +102,14 @@ export function ResearchPageContent({ c }: ResearchPageContentProps) {
         "Policy analysis and research methods training\nData collection and interpretation skills\nGovernance and accountability workshops\nYouth leadership and community facilitation programs"
       )
     }
+  ];
+
+  const periodicForums = [
+    c.t("research.programs.forum.1", "Youth Forum"),
+    c.t("research.programs.forum.2", "Education Forum"),
+    c.t("research.programs.forum.3", "Peace and Politics Forum"),
+    c.t("research.programs.forum.4", "Development Forum"),
+    c.t("research.programs.forum.5", "Civil Society Forum")
   ];
 
   const cycleSteps = [
@@ -184,19 +182,28 @@ export function ResearchPageContent({ c }: ResearchPageContentProps) {
   return (
     <PageShell t={c.t}>
       <PageHero
-        eyebrow={c.t("research.hero.eyebrow", "RESEARCH & ANALYSIS")}
+        eyebrow={c.t("research.hero.eyebrow", "RESEARCH, PROGRAMS AND PARTNERSHIPS")}
         title={c.t("research.hero.title", "Our thematic scope")}
         description={c.t(
           "research.hero.description",
-          "Hiraad's thematic scope reflects a systematic understanding of the Somali Region's development\ntrajectory within Ethiopia's federal system and the wider Horn of Africa."
+          "The Institute's research focuses on a wide range of disciplines, including policy and governance, the peace-conflict nexus, pastoralism, agriculture and development, climate change and the environment, transitional justice and social cohesion, and history and collective memory."
         )}
       />
 
       <section className="section section--surface research-thematic">
         <div className="container">
+          <SectionIntro
+            eyebrow={c.t("research.thematic.eyebrow", "THEMATIC AREAS")}
+            title={c.t("research.thematic.title", "Our research and programmatic focus")}
+            eyebrowTone="accent"
+            size="xl"
+          />
+
           <div className="grid grid--two research-thematic-grid">
             {thematicAreas.map((area) => (
-              <IconCard key={area.title} icon={area.icon} title={area.title} description={area.description} />
+              <div key={area.id} id={area.id} className="research-thematic-item">
+                <IconCard icon={area.icon} title={area.title} description={area.description} />
+              </div>
             ))}
           </div>
         </div>
@@ -264,6 +271,61 @@ export function ResearchPageContent({ c }: ResearchPageContentProps) {
                 {c.t(
                   "research.dialogue.3.description",
                   "Commentary and public analysis promote accurate, contextualized discourse around governance and development issues."
+                )}
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--muted research-programs" id="programs">
+        <div className="container">
+          <SectionIntro
+            eyebrow={c.t("research.programs.eyebrow", "RESEARCH AND PROGRAMMES")}
+            title={c.t("research.programs.title", "Major programmes and events")}
+            description={c.t(
+              "research.programs.description",
+              "Hiraad convenes policymakers, researchers, practitioners, and citizens through a flagship annual forum, recurring thematic forums, and need-based policy dialogues."
+            )}
+            eyebrowTone="accent"
+            size="xl"
+          />
+
+          <div className="grid grid--three research-programs-grid">
+            <article className="info-card">
+              <CalendarDays className="icon-card-icon" aria-hidden="true" />
+              <h3>{c.t("research.programs.1.title", "Hiraad Annual Dialogue Forum (HADAF)")}</h3>
+              <p>
+                {c.t(
+                  "research.programs.1.description",
+                  "The Institute's flagship annual event convenes policymakers, researchers, development practitioners, civil society organizations, community leaders, and citizens from Ethiopia, the Somali Peninsula, and beyond. The forum is a platform for presenting research, debating policy issues, and building strategic partnerships."
+                )}
+              </p>
+            </article>
+
+            <article className="info-card">
+              <Users className="icon-card-icon" aria-hidden="true" />
+              <h3>{c.t("research.programs.2.title", "Periodic Forums")}</h3>
+              <p>
+                {c.t(
+                  "research.programs.2.description",
+                  "Regular forums address emerging regional issues and facilitate dialogue among policymakers, experts, practitioners, and the public."
+                )}
+              </p>
+              <ul className="research-programs-list">
+                {periodicForums.map((forum) => (
+                  <li key={forum}>{forum}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="info-card">
+              <MessagesSquare className="icon-card-icon" aria-hidden="true" />
+              <h3>{c.t("research.programs.3.title", "Occasional Forums")}</h3>
+              <p>
+                {c.t(
+                  "research.programs.3.description",
+                  "Need-based policy dialogues and panel discussions are organized in response to emerging developments and priority issues affecting the region."
                 )}
               </p>
             </article>

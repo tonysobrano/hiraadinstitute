@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { CTASection } from "@/components/site/CTASection";
 import { ButtonLink } from "@/components/site/ButtonLink";
 import { JournalArchive } from "@/components/site/JournalArchive";
@@ -16,13 +18,36 @@ export function JournalsPageContent({ c, journals }: JournalsPageContentProps) {
   return (
     <PageShell t={c.t}>
       <PageHero
-        eyebrow={c.t("journals.hero.eyebrow", "JOURNALS")}
+        eyebrow={c.t("journals.hero.eyebrow", "HIRAAD RESEARCH JOURNAL")}
         title={c.t("journals.hero.title", "Research and policy journals")}
         description={c.t(
           "journals.hero.description",
-          "Browse Hiraad Institute's research papers and policy briefs, grounded in evidence from the Somali Region and designed for practical public-policy use."
+          "The Hiraad Research Journal is the Institute's peer-reviewed publication for policy-oriented scholarship on the Somali Region and the wider Horn of Africa. It publishes original research papers, policy briefs, and analytical commentary across governance, the peace-conflict nexus, pastoralism and development, climate and environment, transitional justice, and history and collective memory."
+        )}
+        secondaryDescription={c.t(
+          "journals.hero.secondaryDescription",
+          "The Journal exists to give local researchers a credible, accessible platform, to hold regional policy debate to an evidentiary standard, and to make rigorous research usable by the policymakers, partners, and communities it concerns. Every issue is published open access."
         )}
       />
+
+      <section className="journal-brand-band">
+        <div className="container journal-brand-band-inner">
+          <Image
+            src="/images/hiraad-research-journal-logo-green.png"
+            alt="Hiraad Research Journal"
+            width={556}
+            height={218}
+            className="journal-brand-logo"
+            priority
+          />
+          <p>
+            {c.t(
+              "journals.brand.tagline",
+              "Evidence from the Somali Region, published open access for public-policy use."
+            )}
+          </p>
+        </div>
+      </section>
 
       <section className="journal-submit-band">
         <div className="container journal-submit-band-inner">
