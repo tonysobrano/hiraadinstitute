@@ -1,0 +1,50 @@
+name: Finalize Hiraad journals
+
+on:
+  push:
+    branches:
+      - agent/add-hiraad-journals-20260727
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create journal assets and update label
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p public/journals
+
+          base64 --decode .journal-upload/education-policy-brief-cover.jpeg.b64 > public/journals/education-policy-brief-cover.jpeg
+          base64 --decode .journal-upload/national-dialogue-policy-brief-cover.jpeg.b64 > public/journals/national-dialogue-policy-brief-cover.jpeg
+          base64 --decode .journal-upload/food-security-policy-brief-cover.jpeg.b64 > public/journals/food-security-policy-brief-cover.jpeg
+          base64 --decode .journal-upload/national-dialogue-research-paper-cover.jpeg.b64 > public/journals/national-dialogue-research-paper-cover.jpeg
+          base64 --decode .journal-upload/education-policy-brief.pdf.b64 > public/journals/education-policy-brief.pdf
+          base64 --decode .journal-upload/national-dialogue-policy-brief.pdf.b64 > public/journals/national-dialogue-policy-brief.pdf
+          base64 --decode .journal-upload/food-security-policy-brief.pdf.b64 > public/journals/food-security-policy-brief.pdf
+          base64 --decode .journal-upload/national-dialogue-research-paper.pdf.b64 > public/journals/national-dialogue-research-paper.pdf
+
+          while IFS= read -r file; do
+            sed -i -e 's/Sources/Journals/g' -e 's/sources/journals/g' "$file"
+          done < <(git grep -I -l -e 'Sources' -e 'sources' || true)
+
+          git fetch origin master
+          git reset --soft origin/master
+          rm -rf .journal-upload .github/workflows/finalize-hiraad-journals.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add Hiraad journals"
+          git push --force-with-lease origin "HEAD:${GITHUB_REF_NAME}"
