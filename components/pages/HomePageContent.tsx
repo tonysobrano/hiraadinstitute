@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CloudSun, Handshake, HeartPulse, Shield, Wheat } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { ButtonLink } from "@/components/site/ButtonLink";
 import { CTASection } from "@/components/site/CTASection";
@@ -9,6 +9,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
 import type { EventContent } from "@/lib/site/events";
 import { journals } from "@/lib/site/journals";
+import { getResearchAreas } from "@/lib/site/research-areas";
 import type { NewsListItem } from "@/lib/site/news";
 import type { ContentResolver } from "@/lib/site/types";
 
@@ -32,6 +33,8 @@ export function HomePageContent({ c, newsItems, events }: HomePageContentProps) 
   const featuredJournals = journals.slice(0, 3);
 
   const recentEvents = events.slice(0, 4);
+
+  const researchAreas = getResearchAreas(c);
 
   return (
     <PageShell t={c.t}>
@@ -180,56 +183,21 @@ export function HomePageContent({ c, newsItems, events }: HomePageContentProps) 
           />
 
           <div className="grid grid--three">
-            <IconCard
-              icon={Shield}
-              title={c.t("home.research.card1.title", "Governance &\nInstitutions")}
-              description={c.t(
-                "home.research.card1.description",
-                "Strengthening governance frameworks, institutional capacity, and public administration across the Somali Region."
-              )}
-            />
-            <IconCard
-              icon={Handshake}
-              title={c.t("home.research.card2.title", "Peace &\nCohesion")}
-              description={c.t(
-                "home.research.card2.description",
-                "Research on conflict resolution, peacebuilding, and social cohesion in pastoralist and cross-border communities."
-              )}
-            />
-            <IconCard
-              icon={CloudSun}
-              title={c.t("home.research.card3.title", "Climate\nResilience")}
-              description={c.t(
-                "home.research.card3.description",
-                "Addressing climate adaptation, drought response, and environmental policy for vulnerable pastoral communities."
-              )}
-            />
-            <IconCard
-              icon={Wheat}
-              title={c.t("home.research.card4.title", "Livelihoods &\nEconomic Development")}
-              description={c.t(
-                "home.research.card4.description",
-                "Exploring pathways for sustainable economic growth, trade, and livelihood diversification."
-              )}
-            />
-            <IconCard
-              icon={HeartPulse}
-              title={c.t("home.research.card5.title", "Social Services\n& Education")}
-              description={c.t(
-                "home.research.card5.description",
-                "Improving access to quality education, healthcare, and social services in underserved communities."
-              )}
-            />
-            <IconCard
-              icon={ArrowRight}
-              title={c.t("home.research.card6.title", "View All\nResearch Areas")}
-              description={c.t(
-                "home.research.card6.description",
-                "Explore the full breadth of our policy research and ongoing projects."
-              )}
-              href="/research"
-              dark
-            />
+            {researchAreas.map((area) => (
+              <IconCard
+                key={area.id}
+                icon={area.icon}
+                title={area.title}
+                description={area.summary}
+              />
+            ))}
+          </div>
+
+          <div className="home-research-actions">
+            <Link href="/research" className="home-research-view-all">
+              <span>{c.t("home.research.viewAll", "View All Research Areas")}</span>
+              <ArrowRight aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
@@ -306,10 +274,10 @@ export function HomePageContent({ c, newsItems, events }: HomePageContentProps) 
         <div className="container">
           <p className="eyebrow">{c.t("home.stats.eyebrow", "OUR IMPACT")}</p>
           <div className="stats-grid">
-            <StatItem value={c.t("home.stats.1.value", "50+")} label={c.t("home.stats.1.label", "Research Publications")} />
-            <StatItem value={c.t("home.stats.2.value", "30+")} label={c.t("home.stats.2.label", "Policy Briefs Delivered")} />
-            <StatItem value={c.t("home.stats.3.value", "20+")} label={c.t("home.stats.3.label", "Public Forums Hosted")} />
-            <StatItem value={c.t("home.stats.4.value", "3")} label={c.t("home.stats.4.label", "Regional Offices")} />
+            <StatItem value={c.t("home.stats.1.value", "15")} label={c.t("home.stats.1.label", "Research Publications")} />
+            <StatItem value={c.t("home.stats.2.value", "10")} label={c.t("home.stats.2.label", "Policy Briefs Delivered")} />
+            <StatItem value={c.t("home.stats.3.value", "9")} label={c.t("home.stats.3.label", "Public Forums Hosted")} />
+            <StatItem value={c.t("home.stats.4.value", "2")} label={c.t("home.stats.4.label", "Regional Offices")} />
           </div>
         </div>
       </section>

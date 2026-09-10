@@ -730,6 +730,12 @@ img {
   line-height: 1.7;
 }
 
+.home-research-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
 .home-research .section-intro {
   margin-bottom: 56px;
 }
@@ -763,6 +769,7 @@ img {
 }
 
 .home-publications-view-all,
+.home-research-view-all,
 .home-news-view-all {
   display: inline-flex;
   align-items: center;
@@ -781,6 +788,7 @@ img {
 }
 
 .home-publications-view-all svg,
+.home-research-view-all svg,
 .home-news-view-all svg {
   width: 16px;
   height: 16px;
@@ -788,6 +796,8 @@ img {
 
 .home-publications-view-all:hover,
 .home-publications-view-all:focus-visible,
+.home-research-view-all:hover,
+.home-research-view-all:focus-visible,
 .home-news-view-all:hover,
 .home-news-view-all:focus-visible {
   border-color: color-mix(in srgb, var(--brand-green) 45%, var(--border-light));
@@ -2648,11 +2658,11 @@ img {
   padding: 0;
   color: var(--text-primary);
   overflow: auto;
-  box-shadow: 0 28px 80px rgba(0, 36, 28, 0.34);
+  box-shadow: 0 28px 80px rgba(6, 42, 31, 0.45);
 }
 
 .newsletter-modal::backdrop {
-  background: rgba(0, 30, 23, 0.72);
+  background: rgba(6, 42, 31, 0.78);
   backdrop-filter: blur(5px);
 }
 
@@ -2660,11 +2670,22 @@ img {
   position: relative;
   width: 100%;
   max-width: 100%;
-  border-top: 5px solid var(--brand-accent);
+  border-top: 6px solid var(--brand-green);
   border-radius: 16px;
-  background: var(--bg-surface);
+  background: linear-gradient(180deg, var(--brand-green-light) 0%, var(--bg-surface) 200px);
   padding: 40px;
   text-align: left;
+  overflow: hidden;
+}
+
+.newsletter-modal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 2px;
+  background: var(--brand-accent);
 }
 
 .newsletter-modal-close {
@@ -2675,21 +2696,51 @@ img {
   width: 36px;
   height: 36px;
   place-items: center;
-  border: 1px solid var(--border-light);
+  border: 1px solid color-mix(in srgb, var(--brand-green) 28%, var(--border-light));
   border-radius: 50%;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--bg-surface);
+  color: var(--brand-green);
   font-size: 25px;
   line-height: 1;
   cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.newsletter-modal-close:hover,
+.newsletter-modal-close:focus-visible {
+  border-color: var(--brand-green);
+  background: var(--brand-green);
+  color: var(--text-on-dark);
 }
 
 .newsletter-modal-card > .eyebrow {
   margin: 0 48px 10px 0;
 }
 
-.newsletter-modal-card h2,
-.newsletter-modal-success h2 {
+/* The dialog lives inside `.cta-section`, whose dark-on-light `p` rules would
+   otherwise win on specificity. Scope the modal's own type colors above them. */
+.newsletter-modal .newsletter-modal-card .eyebrow,
+.newsletter-modal .newsletter-modal-card .contact-form-field span {
+  color: var(--brand-green);
+}
+
+.newsletter-modal .newsletter-modal-card p {
+  color: var(--text-secondary);
+}
+
+.newsletter-modal .newsletter-modal-card .form-message--error {
+  color: #8d2424;
+}
+
+.newsletter-modal .newsletter-modal-card .form-message--success {
+  color: var(--brand-green);
+}
+
+.newsletter-modal .newsletter-modal-card h2,
+.newsletter-modal .newsletter-modal-success h2 {
   margin: 0;
   font-family: var(--font-newsreader), serif;
   color: var(--brand-green);
@@ -2698,10 +2749,9 @@ img {
   line-height: 1.15;
 }
 
-.newsletter-modal-description,
-.newsletter-modal-success > p:last-of-type {
+.newsletter-modal .newsletter-modal-description,
+.newsletter-modal .newsletter-modal-success > p:last-of-type {
   margin: 12px 0 0;
-  color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.7;
 }
@@ -2717,9 +2767,9 @@ img {
 .newsletter-form input {
   width: 100%;
   max-width: 100%;
-  border: 1px solid var(--border-light);
+  border: 1px solid color-mix(in srgb, var(--brand-green) 22%, var(--border-light));
   border-radius: 8px;
-  background: var(--bg-primary);
+  background: var(--bg-surface);
   padding: 13px 14px;
   color: var(--text-primary);
   font: inherit;
@@ -2728,20 +2778,30 @@ img {
 
 .newsletter-form input:focus-visible {
   outline: none;
-  border-color: color-mix(in srgb, var(--brand-accent) 55%, var(--border-light));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--brand-green) 62%, var(--border-light));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-green) 18%, transparent);
 }
 
-.newsletter-form-privacy {
+.newsletter-modal .newsletter-form-privacy {
   margin: 0;
-  color: var(--text-secondary);
   font-size: 12px;
   line-height: 1.55;
 }
 
-.newsletter-form-submit {
+/* `.cta-actions .btn` (the wrapper this dialog is rendered inside) would
+   otherwise resize the modal's buttons — restore the base `.btn` metrics. */
+.newsletter-modal .newsletter-modal-card .btn {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+.newsletter-modal .newsletter-form-submit {
   align-self: flex-start;
   min-width: 140px;
+}
+
+.newsletter-modal .newsletter-modal-card .btn:focus-visible {
+  outline-color: color-mix(in srgb, var(--brand-green) 75%, white);
 }
 
 .newsletter-modal-success {
@@ -2758,7 +2818,8 @@ img {
   place-items: center;
   border-radius: 50%;
   background: var(--brand-green);
-  color: white;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--brand-green) 14%, transparent);
+  color: var(--text-on-dark);
   font-size: 24px;
 }
 
@@ -3902,13 +3963,13 @@ img {
     padding: 32px 20px 24px;
   }
 
-  .newsletter-modal-card h2,
-  .newsletter-modal-success h2 {
+  .newsletter-modal .newsletter-modal-card h2,
+  .newsletter-modal .newsletter-modal-success h2 {
     font-size: 30px;
   }
 
-  .newsletter-form-submit,
-  .newsletter-modal-success .btn {
+  .newsletter-modal .newsletter-modal-card .newsletter-form-submit,
+  .newsletter-modal .newsletter-modal-success .btn {
     width: 100%;
   }
 
