@@ -60,7 +60,7 @@ export function NewsletterSignupButton({ label }: NewsletterSignupButtonProps) {
               <p className="eyebrow eyebrow--accent">SUBSCRIPTION CONFIRMED</p>
               <h2 id={titleId}>You’re on the list</h2>
               <p id={descriptionId}>{state.message}</p>
-              <button className="btn btn-primary" type="button" onClick={closeModal}>
+              <button className="btn btn-dark" type="button" onClick={closeModal}>
                 Done
               </button>
             </div>
@@ -97,7 +97,7 @@ export function NewsletterSignupButton({ label }: NewsletterSignupButtonProps) {
                   By subscribing, you agree to receive Hiraad Institute news and updates. You can unsubscribe at
                   any time.
                 </p>
-                <button className="btn btn-primary newsletter-form-submit" type="submit" disabled={isPending}>
+                <button className="btn btn-dark newsletter-form-submit" type="submit" disabled={isPending}>
                   {isPending ? "Subscribing…" : "Subscribe"}
                 </button>
                 {state.status === "error" ? (
