@@ -268,10 +268,10 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
         <div className="container">
           <p className="eyebrow">{c.t("home.stats.eyebrow", "OUR IMPACT")}</p>
           <div className="stats-grid">
-            <StatItem value={c.t("home.stats.1.value", "50+")} label={c.t("home.stats.1.label", "Research Publications")} />
-            <StatItem value={c.t("home.stats.2.value", "30+")} label={c.t("home.stats.2.label", "Policy Briefs Delivered")} />
-            <StatItem value={c.t("home.stats.3.value", "20+")} label={c.t("home.stats.3.label", "Public Forums Hosted")} />
-            <StatItem value={c.t("home.stats.4.value", "3")} label={c.t("home.stats.4.label", "Regional Offices")} />
+            <StatItem value={c.t("home.stats.1.value", "15")} label={c.t("home.stats.1.label", "Research Publications")} />
+            <StatItem value={c.t("home.stats.2.value", "10")} label={c.t("home.stats.2.label", "Policy Briefs Delivered")} />
+            <StatItem value={c.t("home.stats.3.value", "9")} label={c.t("home.stats.3.label", "Public Forums Hosted")} />
+            <StatItem value={c.t("home.stats.4.value", "2")} label={c.t("home.stats.4.label", "Regional Offices")} />
           </div>
         </div>
       </section>
