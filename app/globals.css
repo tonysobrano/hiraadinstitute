@@ -730,6 +730,12 @@ img {
   line-height: 1.7;
 }
 
+.home-research-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
 .home-research .section-intro {
   margin-bottom: 56px;
 }
@@ -763,6 +769,7 @@ img {
 }
 
 .home-publications-view-all,
+.home-research-view-all,
 .home-news-view-all {
   display: inline-flex;
   align-items: center;
@@ -781,6 +788,7 @@ img {
 }
 
 .home-publications-view-all svg,
+.home-research-view-all svg,
 .home-news-view-all svg {
   width: 16px;
   height: 16px;
@@ -788,6 +796,8 @@ img {
 
 .home-publications-view-all:hover,
 .home-publications-view-all:focus-visible,
+.home-research-view-all:hover,
+.home-research-view-all:focus-visible,
 .home-news-view-all:hover,
 .home-news-view-all:focus-visible {
   border-color: color-mix(in srgb, var(--brand-green) 45%, var(--border-light));
