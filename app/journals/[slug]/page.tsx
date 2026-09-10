@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: JournalPageProps): Promise<Me
   const journal = getJournalBySlug(slug);
 
   if (!journal) {
-    return { title: "Journal | Hiraad Institute" };
+    return { title: "Publication | Hiraad Institute" };
   }
 
   return {
@@ -43,9 +43,9 @@ export default async function JournalPage({ params }: JournalPageProps) {
     <PageShell>
       <section className="journal-reader-hero">
         <div className="container">
-          <Link href="/journals" className="journal-reader-back">
+          <Link href="/research#publications" className="journal-reader-back">
             <ArrowLeft aria-hidden="true" />
-            All journals
+            All publications
           </Link>
 
           <div className="journal-reader-summary">

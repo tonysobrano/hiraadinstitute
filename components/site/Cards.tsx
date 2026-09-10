@@ -143,29 +143,6 @@ export function CompactCard({ meta, title, description, image, href, variant = "
   );
 }
 
-interface PublicationListCardProps {
-  meta: string;
-  title: string;
-  description: string;
-  tags: string;
-  buttonLabel: string;
-  href: string;
-}
-
-export function PublicationListCard({ meta, title, description, tags, buttonLabel, href }: PublicationListCardProps) {
-  return (
-    <article className="publication-list-card">
-      <p className="publication-list-card-meta">{meta}</p>
-      <h3>{title}</h3>
-      <p className="publication-list-card-description">{description}</p>
-      <p className="publication-list-card-tags">{tags}</p>
-      <Link href={href} className="publication-list-card-button">
-        {buttonLabel}
-      </Link>
-    </article>
-  );
-}
-
 interface RelatedLinkCardProps {
   meta: string;
   title: string;

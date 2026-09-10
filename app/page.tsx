@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { HomePageContent } from "@/components/pages/HomePageContent";
 import { getContentResolver } from "@/lib/site/content";
+import { getEventsContent } from "@/lib/site/events";
 import { getNewsContent } from "@/lib/site/news";
 
 export const metadata: Metadata = {
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [c, newsItems] = await Promise.all([getContentResolver("home"), getNewsContent()]);
-  return <HomePageContent c={c} newsItems={newsItems} />;
+  const [c, newsItems, events] = await Promise.all([
+    getContentResolver("home"),
+    getNewsContent(),
+    getEventsContent()
+  ]);
+  return <HomePageContent c={c} newsItems={newsItems} events={events} />;
 }
