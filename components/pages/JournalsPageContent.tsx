@@ -2,19 +2,15 @@ import Image from "next/image";
 
 import { CTASection } from "@/components/site/CTASection";
 import { ButtonLink } from "@/components/site/ButtonLink";
-import { JournalArchive } from "@/components/site/JournalArchive";
 import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
-import { SectionIntro } from "@/components/site/SectionIntro";
-import type { Journal } from "@/lib/site/journals";
 import type { ContentResolver } from "@/lib/site/types";
 
 interface JournalsPageContentProps {
   c: ContentResolver;
-  journals: Journal[];
 }
 
-export function JournalsPageContent({ c, journals }: JournalsPageContentProps) {
+export function JournalsPageContent({ c }: JournalsPageContentProps) {
   return (
     <PageShell t={c.t}>
       <PageHero
@@ -59,23 +55,6 @@ export function JournalsPageContent({ c, journals }: JournalsPageContentProps) {
             </p>
           </div>
           <ButtonLink href="/journals/submit" label="Submit Your Research" variant="accent" />
-        </div>
-      </section>
-
-      <section className="section section--surface journal-archive">
-        <div className="container">
-          <SectionIntro
-            eyebrow={c.t("journals.archive.eyebrow", "LATEST JOURNALS")}
-            title={c.t("journals.archive.title", "Evidence, analysis, and policy recommendations")}
-            description={c.t(
-              "journals.archive.description",
-              "Open any document to read it online, or download the original PDF for offline use."
-            )}
-            eyebrowTone="accent"
-            size="xl"
-          />
-
-          <JournalArchive journals={journals} />
         </div>
       </section>
 

@@ -1,17 +1,20 @@
 import { CTASection } from "@/components/site/CTASection";
 import { IconCard } from "@/components/site/Cards";
+import { JournalArchive } from "@/components/site/JournalArchive";
 import { PageHero } from "@/components/site/PageHero";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import type { Journal } from "@/lib/site/journals";
 import { getResearchAreas } from "@/lib/site/research-areas";
 import type { ContentResolver } from "@/lib/site/types";
 import { CalendarDays, MessagesSquare, Users } from "lucide-react";
 
 interface ResearchPageContentProps {
   c: ContentResolver;
+  journals: Journal[];
 }
 
-export function ResearchPageContent({ c }: ResearchPageContentProps) {
+export function ResearchPageContent({ c, journals }: ResearchPageContentProps) {
   const thematicAreas = getResearchAreas(c);
 
   const serviceCards = [
@@ -179,7 +182,24 @@ export function ResearchPageContent({ c }: ResearchPageContentProps) {
         </div>
       </section>
 
-      <section className="section section--surface research-dialogue">
+      <section id="publications" className="section section--surface journal-archive">
+        <div className="container">
+          <SectionIntro
+            eyebrow={c.t("journals.archive.eyebrow", "LATEST PUBLICATIONS")}
+            title={c.t("journals.archive.title", "Evidence, analysis, and policy recommendations")}
+            description={c.t(
+              "journals.archive.description",
+              "Open any document to read it online, or download the original PDF for offline use."
+            )}
+            eyebrowTone="accent"
+            size="xl"
+          />
+
+          <JournalArchive journals={journals} />
+        </div>
+      </section>
+
+      <section className="section section--muted research-dialogue">
         <div className="container">
           <SectionIntro
             eyebrow={c.t("research.dialogue.eyebrow", "HOW WE ENGAGE")}
@@ -224,7 +244,7 @@ export function ResearchPageContent({ c }: ResearchPageContentProps) {
         </div>
       </section>
 
-      <section className="section section--muted research-programs" id="programs">
+      <section className="section section--surface research-programs" id="programs">
         <div className="container">
           <SectionIntro
             eyebrow={c.t("research.programs.eyebrow", "RESEARCH AND PROGRAMMES")}

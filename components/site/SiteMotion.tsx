@@ -11,7 +11,6 @@ const REVEAL_SELECTOR = [
   ".approach-step",
   ".cycle-step",
   ".publication-card",
-  ".publication-list-card",
   ".related-link-card",
   ".meta-card",
   ".asset-card"

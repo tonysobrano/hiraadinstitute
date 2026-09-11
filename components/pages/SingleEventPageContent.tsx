@@ -81,9 +81,6 @@ export function SingleEventPageContent({ c, event, relatedEvents }: SingleEventP
               <header className="event-story-section-heading">
                 <p className="eyebrow eyebrow--accent">{c.t("singleEvent.gallery.eyebrow", "GALLERY")}</p>
                 <h2>{c.t("singleEvent.gallery.title", "Event gallery")}</h2>
-                <p>
-                  {event.galleryImages.length} {event.galleryImages.length === 1 ? "photograph" : "photographs"}
-                </p>
               </header>
               <div className="event-story-gallery-grid">
                 {event.galleryImages.map((image, index) => (

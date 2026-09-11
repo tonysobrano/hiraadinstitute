@@ -24,7 +24,7 @@ export function JournalArchive({ journals }: JournalArchiveProps) {
   return (
     <>
       <div className="journal-archive-toolbar">
-        <div className="chip-row" aria-label="Filter journals by format">
+        <div className="chip-row" aria-label="Filter publications by format">
           {filters.map((item) => (
             <button
               key={item}
@@ -33,13 +33,10 @@ export function JournalArchive({ journals }: JournalArchiveProps) {
               aria-pressed={filter === item}
               onClick={() => setFilter(item)}
             >
-              {item === "All" ? "All journals" : `${item}s`}
+              {item === "All" ? "All publications" : `${item}s`}
             </button>
           ))}
         </div>
-        <p className="journal-result-count">
-          {visibleJournals.length} {visibleJournals.length === 1 ? "document" : "documents"}
-        </p>
       </div>
 
       <div className="journal-archive-layout">
@@ -69,7 +66,7 @@ export function JournalArchive({ journals }: JournalArchiveProps) {
 
                 <div className="journal-card-actions">
                   <Link href={`/journals/${journal.slug}`} className="journal-card-read">
-                    Read journal <ArrowUpRight aria-hidden="true" />
+                    Read publication <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <a href={journal.pdf} download className="journal-card-download">
                     <Download aria-hidden="true" />
@@ -81,7 +78,7 @@ export function JournalArchive({ journals }: JournalArchiveProps) {
           ))}
         </div>
 
-        <aside className="journal-year-panel" aria-label="Journal archive years">
+        <aside className="journal-year-panel" aria-label="Publication archive years">
           <p className="journal-year-heading">Year</p>
           {years.map((year) => (
             <div className="journal-year-row" key={year}>

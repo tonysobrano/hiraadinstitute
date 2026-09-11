@@ -7,6 +7,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { IconCard, NewsFeatureCard, NumberedRow, PublicationCard, StatItem } from "@/components/site/Cards";
 import { PageShell } from "@/components/site/PageShell";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import type { EventContent } from "@/lib/site/events";
 import { journals } from "@/lib/site/journals";
 import { getResearchAreas } from "@/lib/site/research-areas";
 import type { NewsListItem } from "@/lib/site/news";
@@ -15,9 +16,10 @@ import type { ContentResolver } from "@/lib/site/types";
 interface HomePageContentProps {
   c: ContentResolver;
   newsItems: NewsListItem[];
+  events: EventContent[];
 }
 
-export function HomePageContent({ c, newsItems }: HomePageContentProps) {
+export function HomePageContent({ c, newsItems, events }: HomePageContentProps) {
   const heroImage = c.i(
     "home.hero.image",
     "/images/home/hero-workshop-group-work.jpg"
@@ -29,6 +31,8 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
   );
 
   const featuredJournals = journals.slice(0, 3);
+
+  const recentEvents = events.slice(0, 4);
 
   const researchAreas = getResearchAreas(c);
 
@@ -107,7 +111,7 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
         <div className="container">
           <div className="section-heading-row">
             <SectionIntro
-              eyebrow={c.t("home.news.eyebrow", "LATEST NEWS")}
+              eyebrow={c.t("home.news.eyebrow", "LATEST")}
               title={c.t("home.news.title", "Latest updates from Hiraad")}
               size="lg"
             />
@@ -117,16 +121,50 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
             </Link>
           </div>
 
-          <div className="grid grid--three">
-            {newsItems.slice(0, 3).map((item) => (
-              <NewsFeatureCard
-                key={item.title}
-                image={item.image || "https://images.unsplash.com/photo-1573167643872-43a4664ccf2c?auto=format&fit=crop&w=1200&q=80"}
-                meta={item.meta}
-                title={item.title}
-                excerpt={item.description}
-                href={`/news/${item.slug}`}
-              />
+          {newsItems.length > 0 ? (
+            <div className="grid grid--three">
+              {newsItems.slice(0, 3).map((item) => (
+                <NewsFeatureCard
+                  key={item.title}
+                  image={item.image || "https://images.unsplash.com/photo-1573167643872-43a4664ccf2c?auto=format&fit=crop&w=1200&q=80"}
+                  meta={item.meta}
+                  title={item.title}
+                  excerpt={item.description}
+                  href={`/news/${item.slug}`}
+                />
+              ))}
+            </div>
+          ) : null}
+
+          <div className={`home-events-grid${newsItems.length > 0 ? " home-events-grid--divided" : ""}`}>
+            {recentEvents.map((event) => (
+              <article className="event-directory-card" key={event.slug}>
+                <Link
+                  className="event-directory-card-image-link"
+                  href={`/events/${event.slug}`}
+                  aria-label={`View ${event.title}`}
+                >
+                  <span className="event-directory-card-image-wrap">
+                    <Image
+                      src={event.previewImage}
+                      alt={event.title}
+                      fill
+                      className="event-directory-card-image"
+                      sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </span>
+                </Link>
+                <div className="event-directory-card-content">
+                  <p className="event-directory-card-meta">{event.previewMeta}</p>
+                  <h3>
+                    <Link href={`/events/${event.slug}`}>{event.title}</Link>
+                  </h3>
+                  {event.previewDescription ? <p>{event.previewDescription}</p> : null}
+                  <Link className="event-directory-card-link" href={`/events/${event.slug}`}>
+                    View event
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -248,12 +286,12 @@ export function HomePageContent({ c, newsItems }: HomePageContentProps) {
         <div className="container">
           <div className="section-heading-row">
             <SectionIntro
-              eyebrow={c.t("home.journals.eyebrow", "LATEST JOURNALS")}
+              eyebrow={c.t("home.journals.eyebrow", "LATEST PUBLICATIONS")}
               title={c.t("home.journals.title", "Recent research & policy briefs")}
               size="lg"
             />
-            <Link href="/journals" className="home-publications-view-all">
-              <span>{c.t("home.journals.viewAll", "View All Journals")}</span>
+            <Link href="/research#publications" className="home-publications-view-all">
+              <span>{c.t("home.journals.viewAll", "View All Publications")}</span>
               <ArrowRight aria-hidden="true" />
             </Link>
           </div>
